@@ -4,17 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:controls="clr-namespace:RecipeApp.Controls"
              x:Class="RecipeApp.Views.RecipeListPage">
-    <ContentPage.Content>
-        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <ActivityIndicator IsRunning="{Binding IsLoading}" />
-            <ListView ItemsSource="{Binding Recipes}" IsVisible="{Binding IsLoaded}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Name}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-    </ContentPage.Content>
+    <RelativeLayout Margin="10,10,10,10">
+        <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <ActivityIndicator IsRunning="{Binding IsLoading}" />
+                <ListView ItemsSource="{Binding Recipes}" IsVisible="{Binding IsLoaded}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ContentView>
+        <controls:FloatingActionButton
+                FontFamily="FA-S"
+                Text="{StaticResource IconAdd}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-90}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1, Constant=-90}"
+                IsVisible="{Binding IsLoaded}" />
+    </RelativeLayout>
 </ContentPage>

@@ -6,6 +6,6 @@
              mc:Ignorable="d"
              x:Class="RecipeApp.App">
     <Application.Resources>
-
+        <x:String x:Key="IconAdd">&#xf067;</x:String>
     </Application.Resources>
 </Application>
