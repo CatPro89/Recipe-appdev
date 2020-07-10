@@ -2,13 +2,14 @@
 using RecipeApp.Models;
 using RecipeApp.Services;
 using RecipeApp.Views;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
-    public class RecipeDetailsViewModel : BindableObject
+    public class RecipeDetailsViewModel : BaseModel
     {
         public RecipeDetailsViewModel(IRecipeService recipeService, INavigation navigation, int recipeId)
         {
@@ -62,6 +63,7 @@ namespace RecipeApp.ViewModels
         public async Task Load()
         {
             Recipe = await LoadRecipe(RecipeId);
+            Recipe.PropertyChanged += Recipe_PropertyChanged;
         }
 
         private Task<Recipe> LoadRecipe(int recipeId)
@@ -70,6 +72,16 @@ namespace RecipeApp.ViewModels
             {
                 return RecipeService.GetRecipeAsync(recipeId);
             });
+        }
+
+        private void Recipe_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(Recipe.ImagePath):
+                    OnPropertyChanged(nameof(ImageSource));
+                    break;
+            }
         }
 
         public ICommand EditRecipeCommand { get; private set; }

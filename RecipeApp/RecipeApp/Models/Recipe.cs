@@ -7,7 +7,7 @@ using System.Linq;
 namespace RecipeApp.Models
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class Recipe
+    public class Recipe : BaseModel
     {
         public Recipe()
         {
@@ -18,19 +18,131 @@ namespace RecipeApp.Models
         [Key]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
 
-        public string ImagePath { get; set; }
+        private string name;
 
-        public int Servings { get; set; }
+        public string ImagePath
+        {
+            get
+            {
+                return imagePath;
+            }
+            set
+            {
+                if (imagePath != value)
+                {
+                    imagePath = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
 
-        public TimeSpan PreparationTime { get; set; }
+        private string imagePath;
 
-        public TimeSpan RestTime { get; set; }
+        public int Servings
+        {
+            get
+            {
+                return servings;
+            }
+            set
+            {
+                if (servings != value)
+                {
+                    servings = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
 
-        public TimeSpan BakingCookingTime { get; set; }
+        private int servings;
 
-        public TimeSpan OverallTime { get; set; }
+        public TimeSpan PreparationTime
+        {
+            get
+            {
+                return preparationTime;
+            }
+            set
+            {
+                if (preparationTime != value)
+                {
+                    preparationTime = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private TimeSpan preparationTime;
+
+        public TimeSpan RestTime
+        {
+            get
+            {
+                return restTime;
+            }
+            set
+            {
+                if (restTime != value)
+                {
+                    restTime = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private TimeSpan restTime;
+
+        public TimeSpan BakingCookingTime
+        {
+            get
+            {
+                return bakingCookingTime;
+            }
+            set
+            {
+                if (bakingCookingTime != value)
+                {
+                    bakingCookingTime = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private TimeSpan bakingCookingTime;
+
+        public TimeSpan OverallTime
+        {
+            get
+            {
+                return overallTime;
+            }
+            set
+            {
+                if (overallTime != value)
+                {
+                    overallTime = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private TimeSpan overallTime;
 
         public IEnumerable<Ingredient> Ingredients
         {
@@ -40,7 +152,11 @@ namespace RecipeApp.Models
             }
             set
             {
-                ingredients = value.ToList();
+                if (ingredients != value)
+                {
+                    ingredients = value.ToList();
+                    RaisePropertyChange();
+                }
             }
         }
 
@@ -54,7 +170,11 @@ namespace RecipeApp.Models
             }
             set
             {
-                directions = value.ToList();
+                if (directions != value)
+                {
+                    directions = value.ToList();
+                    RaisePropertyChange();
+                }
             }
         }
 
@@ -155,5 +275,25 @@ namespace RecipeApp.Models
         }
 
         private string DebuggerDisplay => Name;
+
+        public override bool Equals(object obj)
+        {
+            return obj is Recipe recipe &&
+                   Id == recipe.Id &&
+                   Name == recipe.Name &&
+                   ImagePath == recipe.ImagePath &&
+                   Servings == recipe.Servings &&
+                   PreparationTime.Equals(recipe.PreparationTime) &&
+                   RestTime.Equals(recipe.RestTime) &&
+                   BakingCookingTime.Equals(recipe.BakingCookingTime) &&
+                   OverallTime.Equals(recipe.OverallTime) &&
+                   EqualityComparer<IEnumerable<Ingredient>>.Default.Equals(Ingredients, recipe.Ingredients) &&
+                   EqualityComparer<IEnumerable<Direction>>.Default.Equals(Directions, recipe.Directions);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
     }
 }

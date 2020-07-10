@@ -16,10 +16,17 @@ namespace RecipeApp.Services
 
         public async Task<bool> DisplayQuestionAlert(string questionResource)
         {
-            return await Application.Current.MainPage.DisplayAlert(ResourceManager.GetString(Constants.Resource_Alert),
+            return await Application.Current.MainPage.DisplayAlert(ResourceManager.GetString(nameof(AppResources.Alert)),
                     ResourceManager.GetString(questionResource),
-                    ResourceManager.GetString(Constants.Resource_Yes),
-                    ResourceManager.GetString(Constants.Resource_No));
+                    ResourceManager.GetString(nameof(AppResources.Yes)),
+                    ResourceManager.GetString(nameof(AppResources.No)));
+        }
+
+        public async Task DisplayErrorAlert(string errorMessageResource)
+        {
+            await Application.Current.MainPage.DisplayAlert(ResourceManager.GetString(nameof(AppResources.Error)),
+                    ResourceManager.GetString(errorMessageResource),
+                    ResourceManager.GetString(nameof(AppResources.Ok)));
         }
     }
 }

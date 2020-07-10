@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
-    public class RecipeRowViewModel : BindableObject
+    public class RecipeRowViewModel : BaseModel
     {
         public RecipeRowViewModel(Recipe recipe)
         {

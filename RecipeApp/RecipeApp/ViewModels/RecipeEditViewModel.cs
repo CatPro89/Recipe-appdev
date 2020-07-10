@@ -1,13 +1,17 @@
-﻿using RecipeApp.Helpers;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using RecipeApp.Helpers;
 using RecipeApp.Models;
+using RecipeApp.Resx;
 using RecipeApp.Services;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
-    public class RecipeEditViewModel : BindableObject
+    public class RecipeEditViewModel : BaseModel
     {
         public RecipeEditViewModel(IRecipeService recipeService, INavigation navigation, IAlertService alertService, int? recipeId)
         {
@@ -15,6 +19,7 @@ namespace RecipeApp.ViewModels
             Navigation = navigation;
             AlertService = alertService;
             RecipeId = recipeId;
+            SelectImageCommand = new Command(async () => await SelectImage());
             SaveRecipeCommand = new Command(async () => await SaveRecipe());
             BackCommand = new Command(async () => await Back());
         }
@@ -52,6 +57,7 @@ namespace RecipeApp.ViewModels
         public async Task Load()
         {
             Recipe = RecipeId == null ? new Recipe() : await LoadRecipe((int)RecipeId);
+            Recipe.PropertyChanged += Recipe_PropertyChanged;
         }
 
         private Task<Recipe> LoadRecipe(int recipeId)
@@ -60,6 +66,46 @@ namespace RecipeApp.ViewModels
             {
                 return RecipeService.GetRecipeAsync(recipeId);
             });
+        }
+
+        private void Recipe_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(Recipe.ImagePath):
+                    OnPropertyChanged(nameof(ImageSource));
+                    break;
+            }
+        }
+
+        public ICommand SelectImageCommand { get; private set; }
+
+        private async Task SelectImage()
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await AlertService.DisplayErrorAlert(nameof(AppResources.PickPhotoNotSupported));
+
+                return;
+            }
+
+            var mediaOptions = new PickMediaOptions
+            {
+                PhotoSize = PhotoSize.Medium
+            };
+
+            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+            if (selectedImageFile == null)
+            {
+                await AlertService.DisplayErrorAlert(nameof(AppResources.NoPhotoPicked));
+
+                return;
+            }
+
+            Recipe.ImagePath = ImageHelper.CopyImage(selectedImageFile.Path);
         }
 
         public ICommand SaveRecipeCommand { get; private set; }
@@ -75,7 +121,7 @@ namespace RecipeApp.ViewModels
 
         private async Task Back()
         {
-            var saveChanges = await AlertService.DisplayQuestionAlert("QuestionSaveChanges");
+            var saveChanges = await AlertService.DisplayQuestionAlert(nameof(AppResources.QuestionSaveChanges));
 
             if (saveChanges)
             {

@@ -126,14 +126,26 @@
   <data name="Directions" xml:space="preserve">
     <value>Zubereitung</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
   <data name="Ingredients" xml:space="preserve">
     <value>Zutaten</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Nein</value>
   </data>
+  <data name="NoPhotoPicked" xml:space="preserve">
+    <value>Es wurde kein Foto ausgewählt.</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
   <data name="Overview" xml:space="preserve">
     <value>Übersicht</value>
+  </data>
+  <data name="PickPhotoNotSupported" xml:space="preserve">
+    <value>Dein Gerät erlaubt es aktuell nicht Fotos auszuwählen.</value>
   </data>
   <data name="QuestionSaveChanges" xml:space="preserve">
     <value>Möchtest du deine Änderungen speichern?</value>

@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
-    public class RecipeListViewModel : BindableObject
+    public class RecipeListViewModel : BaseModel
     {
         public RecipeListViewModel(IRecipeService recipeService, INavigation navigation)
         {
@@ -40,13 +40,7 @@ namespace RecipeApp.ViewModels
 
         private bool isLoading;
 
-        public bool IsLoaded
-        {
-            get
-            {
-                return !IsLoading;
-            }
-        }
+        public bool IsLoaded => !IsLoading;
 
         public ObservableCollection<RecipeRowViewModel> RecipeRowViewModels
         {
