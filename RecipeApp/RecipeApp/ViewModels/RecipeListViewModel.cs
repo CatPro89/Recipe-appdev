@@ -2,6 +2,7 @@
 using RecipeApp.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -12,7 +13,7 @@ namespace RecipeApp.ViewModels
         public RecipeListViewModel(IRecipeService recipeService)
         {
             RecipeService = recipeService;
-            Recipes = new ObservableCollection<Recipe>();
+            RecipeRowViewModels = new ObservableCollection<RecipeRowViewModel>();
         }
 
         public bool IsLoading
@@ -42,21 +43,21 @@ namespace RecipeApp.ViewModels
             }
         }
 
-        public ObservableCollection<Recipe> Recipes
+        public ObservableCollection<RecipeRowViewModel> RecipeRowViewModels
         {
-            get { return recipes; }
+            get { return recipeRowViewModels; }
 
             set
             {
-                if (recipes != value)
+                if (recipeRowViewModels != value)
                 {
-                    recipes = value;
-                    OnPropertyChanged(nameof(Recipes));
+                    recipeRowViewModels = value;
+                    OnPropertyChanged(nameof(RecipeRowViewModels));
                 }
             }
         }
 
-        private ObservableCollection<Recipe> recipes;
+        private ObservableCollection<RecipeRowViewModel> recipeRowViewModels;
 
         private IRecipeService RecipeService { get; set; }
 
@@ -64,7 +65,8 @@ namespace RecipeApp.ViewModels
         {
             IsLoading = true;
 
-            Recipes = new ObservableCollection<Recipe>(await LoadRecipes());
+            var recipes = await LoadRecipes();
+            RecipeRowViewModels = new ObservableCollection<RecipeRowViewModel>(recipes.Select(recipe => new RecipeRowViewModel(recipe)));
 
             IsLoading = false;
         }

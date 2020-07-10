@@ -11,10 +11,30 @@
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
             <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <ActivityIndicator IsRunning="{Binding IsLoading}" />
-                <ListView ItemsSource="{Binding Recipes}" IsVisible="{Binding IsLoaded}">
+                <ListView ItemsSource="{Binding RecipeRowViewModels}"
+                          SeparatorVisibility="None"
+                          RowHeight="120"
+                          IsVisible="{Binding IsLoaded}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Name}" />
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+                                    <Image Source="{Binding ImageSource}" />
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding Recipe.Name}" FontSize="Large" />
+                                        <Grid ColumnDefinitions="0.1*, 0.4*, 0.1*, 0.4*" RowDefinitions="0.5*, 0.5*">
+                                            <Label Grid.Row="0" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconPreparationTime}" />
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding PreparationTime}" />
+                                            <Label Grid.Row="0" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconRestTime}" />
+                                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding RestTime}" />
+                                            <Label Grid.Row="1" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconBakingCookingTime}" />
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding BakingCookingTime}" />
+                                            <Label Grid.Row="1" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconOverallTime}" />
+                                            <Label Grid.Row="1" Grid.Column="3" Text="{Binding OverallTime}" />
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
