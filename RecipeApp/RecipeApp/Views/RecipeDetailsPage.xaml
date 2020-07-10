@@ -13,6 +13,7 @@
                 <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconEdit}" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
+        <ToolbarItem Text="{x:Static resources:AppResources.Delete}" Command="{Binding DeleteRecipeCommand}" Order="Secondary" Priority="0" />
     </TabbedPage.ToolbarItems>
 
     <ContentPage Title="{x:Static resources:AppResources.Overview}">

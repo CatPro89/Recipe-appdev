@@ -16,6 +16,7 @@ namespace RecipeApp.ViewModels
             Navigation = navigation;
             RecipeId = recipeId;
             EditRecipeCommand = new Command(EditRecipe);
+            DeleteRecipeCommand = new Command(DeleteRecipe);
         }
 
         public Recipe Recipe
@@ -76,6 +77,15 @@ namespace RecipeApp.ViewModels
         private async void EditRecipe()
         {
             await Navigation.PushModalAsync(new NavigationPage(new RecipeEditPage(RecipeId)));
+        }
+
+        public ICommand DeleteRecipeCommand { get; private set; }
+
+        private async void DeleteRecipe()
+        {
+            await RecipeService.DeleteRecipeAsync(Recipe);
+
+            await Navigation.PopAsync();
         }
     }
 }
