@@ -36,6 +36,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\RecipeDetailsPage.xaml.cs">
+      <DependentUpon>RecipeDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\RecipesPage.xaml.cs">
       <DependentUpon>RecipesPage.xaml</DependentUpon>
     </Compile>
@@ -51,6 +54,9 @@
     <EmbeddedResource Update="Resx\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RecipeEditPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

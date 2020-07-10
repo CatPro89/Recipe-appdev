@@ -7,6 +7,7 @@
              x:Class="RecipeApp.App">
     <Application.Resources>
         <x:String x:Key="IconAdd">&#xf067;</x:String>
+        <x:String x:Key="IconEdit">&#xf044;</x:String>
         <x:String x:Key="IconSave">&#xf0c7;</x:String>
         <x:String x:Key="IconPreparationTime">&#xf5a7;</x:String>
         <x:String x:Key="IconRestTime">&#xf252;</x:String>

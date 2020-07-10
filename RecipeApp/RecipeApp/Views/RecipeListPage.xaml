@@ -12,6 +12,9 @@
             <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <ActivityIndicator IsRunning="{Binding IsLoading}" />
                 <ListView ItemsSource="{Binding RecipeRowViewModels}"
+                          HasUnevenRows="False"
+                          ItemTapped="ListView_ItemTapped"
+                          SelectionMode="None"
                           SeparatorVisibility="None"
                           RowHeight="120"
                           IsVisible="{Binding IsLoaded}">

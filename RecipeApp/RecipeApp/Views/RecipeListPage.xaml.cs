@@ -21,5 +21,16 @@ namespace RecipeApp.Views
             BindingContext = recipeListViewModel;
             await recipeListViewModel.Load();
         }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var recipeListViewModel = (RecipeListViewModel)BindingContext;
+            var recipeRowViewModel = e.Item as RecipeRowViewModel;
+
+            if (recipeRowViewModel != null)
+            {
+                recipeListViewModel.ShowRecipeDetailsCommand.Execute(recipeRowViewModel.Recipe.Id);
+            }
+        }
     }
 }

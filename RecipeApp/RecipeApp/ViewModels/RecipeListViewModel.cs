@@ -18,6 +18,7 @@ namespace RecipeApp.ViewModels
             Navigation = navigation;
             RecipeRowViewModels = new ObservableCollection<RecipeRowViewModel>();
             AddRecipeCommand = new Command(AddRecipe);
+            ShowRecipeDetailsCommand = new Command<int>(ShowRecipeDetails);
         }
 
         public bool IsLoading
@@ -90,6 +91,13 @@ namespace RecipeApp.ViewModels
         private async void AddRecipe()
         {
             await Navigation.PushModalAsync(new NavigationPage(new RecipeEditPage()));
+        }
+
+        public ICommand ShowRecipeDetailsCommand { get; private set; }
+
+        private async void ShowRecipeDetails(int recipeId)
+        {
+            await Navigation.PushAsync(new RecipeDetailsPage(recipeId));
         }
     }
 }

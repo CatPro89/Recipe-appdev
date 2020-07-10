@@ -1,6 +1,5 @@
 ﻿using RecipeApp.Helpers;
 using RecipeApp.Models;
-using System;
 using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
@@ -12,36 +11,38 @@ namespace RecipeApp.ViewModels
             Recipe = recipe;
         }
 
-        public Recipe Recipe { get; set; }
-
-        public ImageSource ImageSource
+        public Recipe Recipe
         {
             get
             {
-                return ImageHelper.GetImageSource(Recipe.ImagePath);
+                return recipe;
+            }
+            set
+            {
+                if (recipe != value)
+                {
+                    recipe = value;
+
+                    OnPropertyChanged(nameof(Recipe));
+                    OnPropertyChanged(nameof(ImageSource));
+                    OnPropertyChanged(nameof(PreparationTime));
+                    OnPropertyChanged(nameof(RestTime));
+                    OnPropertyChanged(nameof(BakingCookingTime));
+                    OnPropertyChanged(nameof(OverallTime));
+                }
             }
         }
 
-        public string PreparationTime => GetTimeSpanString(Recipe.PreparationTime);
+        private Recipe recipe;
 
-        public string RestTime => GetTimeSpanString(Recipe.RestTime);
+        public ImageSource ImageSource => ImageHelper.GetImageSource(Recipe.ImagePath);
 
-        public string BakingCookingTime => GetTimeSpanString(Recipe.BakingCookingTime);
+        public string PreparationTime => TimeSpanFormatter.Format(Recipe.PreparationTime);
 
-        public string OverallTime => GetTimeSpanString(Recipe.OverallTime);
+        public string RestTime => TimeSpanFormatter.Format(Recipe.RestTime);
 
-        private string GetTimeSpanString(TimeSpan timeSpan)
-        {
-            if (timeSpan.Hours > 0 && timeSpan.Minutes > 0)
-                return $"{timeSpan.Hours}:{timeSpan.Minutes} h";
+        public string BakingCookingTime => TimeSpanFormatter.Format(Recipe.BakingCookingTime);
 
-            if (timeSpan.Hours > 0)
-                return $"{timeSpan.Hours} h";
-
-            if (timeSpan.Minutes > 0)
-                return $"{timeSpan.Minutes} min";
-
-            return string.Empty;
-        }
+        public string OverallTime => TimeSpanFormatter.Format(Recipe.OverallTime);
     }
 }

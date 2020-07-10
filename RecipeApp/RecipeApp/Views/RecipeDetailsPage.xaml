@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:resources="clr-namespace:RecipeApp.Resx"
+             x:Class="RecipeApp.Views.RecipeDetailsPage">
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Command="{Binding EditRecipeCommand}" Order="Primary" Priority="0">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconEdit}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </TabbedPage.ToolbarItems>
+
+    <ContentPage Title="{x:Static resources:AppResources.Overview}">
+        <ScrollView>
+            <StackLayout Margin="10,10,10,10">
+                <Image Source="{Binding ImageSource}" Margin="0,0,0,10" />
+                <Label Text="{Binding Recipe.Name}" FontSize="Large" />
+                <Grid ColumnDefinitions="0.1*, 0.4*, 0.1*, 0.4*" RowDefinitions="0.5*, 0.5*">
+                    <Label Grid.Row="0" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconPreparationTime}" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding PreparationTime}" />
+                    <Label Grid.Row="0" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconRestTime}" />
+                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding RestTime}" />
+                    <Label Grid.Row="1" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconBakingCookingTime}" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding BakingCookingTime}" />
+                    <Label Grid.Row="1" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconOverallTime}" />
+                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding OverallTime}" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resources:AppResources.Ingredients}">
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resources:AppResources.Directions}">
+    </ContentPage>
+
+</TabbedPage>

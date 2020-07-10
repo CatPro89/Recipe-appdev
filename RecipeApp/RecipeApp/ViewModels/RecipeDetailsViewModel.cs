@@ -1,20 +1,21 @@
 ﻿using RecipeApp.Helpers;
 using RecipeApp.Models;
 using RecipeApp.Services;
+using RecipeApp.Views;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
-    public class RecipeEditViewModel : BindableObject
+    public class RecipeDetailsViewModel : BindableObject
     {
-        public RecipeEditViewModel(IRecipeService recipeService, INavigation navigation, int? recipeId)
+        public RecipeDetailsViewModel(IRecipeService recipeService, INavigation navigation, int recipeId)
         {
             RecipeService = recipeService;
             Navigation = navigation;
             RecipeId = recipeId;
-            SaveRecipeCommand = new Command(SaveRecipe);
+            EditRecipeCommand = new Command(EditRecipe);
         }
 
         public Recipe Recipe
@@ -31,6 +32,10 @@ namespace RecipeApp.ViewModels
 
                     OnPropertyChanged(nameof(Recipe));
                     OnPropertyChanged(nameof(ImageSource));
+                    OnPropertyChanged(nameof(PreparationTime));
+                    OnPropertyChanged(nameof(RestTime));
+                    OnPropertyChanged(nameof(BakingCookingTime));
+                    OnPropertyChanged(nameof(OverallTime));
                 }
             }
         }
@@ -39,15 +44,23 @@ namespace RecipeApp.ViewModels
 
         public ImageSource ImageSource => ImageHelper.GetImageSource(Recipe?.ImagePath);
 
+        public string PreparationTime => TimeSpanFormatter.Format(Recipe?.PreparationTime);
+
+        public string RestTime => TimeSpanFormatter.Format(Recipe?.RestTime);
+
+        public string BakingCookingTime => TimeSpanFormatter.Format(Recipe?.BakingCookingTime);
+
+        public string OverallTime => TimeSpanFormatter.Format(Recipe?.OverallTime);
+
         private IRecipeService RecipeService { get; set; }
 
         private INavigation Navigation { get; set; }
 
-        private int? RecipeId { get; set; }
+        private int RecipeId { get; set; }
 
         public async Task Load()
         {
-            Recipe = RecipeId == null ? new Recipe() : await LoadRecipe((int)RecipeId);
+            Recipe = await LoadRecipe(RecipeId);
         }
 
         private Task<Recipe> LoadRecipe(int recipeId)
@@ -58,13 +71,11 @@ namespace RecipeApp.ViewModels
             });
         }
 
-        public ICommand SaveRecipeCommand { get; private set; }
+        public ICommand EditRecipeCommand { get; private set; }
 
-        private async void SaveRecipe()
+        private async void EditRecipe()
         {
-            await RecipeService.SaveRecipeAsync(Recipe);
-
-            await Navigation.PopModalAsync();
+            await Navigation.PushModalAsync(new NavigationPage(new RecipeEditPage(RecipeId)));
         }
     }
 }
