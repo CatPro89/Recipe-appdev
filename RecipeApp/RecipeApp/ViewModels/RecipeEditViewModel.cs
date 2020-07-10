@@ -9,12 +9,14 @@ namespace RecipeApp.ViewModels
 {
     public class RecipeEditViewModel : BindableObject
     {
-        public RecipeEditViewModel(IRecipeService recipeService, INavigation navigation, int? recipeId)
+        public RecipeEditViewModel(IRecipeService recipeService, INavigation navigation, IAlertService alertService, int? recipeId)
         {
             RecipeService = recipeService;
             Navigation = navigation;
+            AlertService = alertService;
             RecipeId = recipeId;
-            SaveRecipeCommand = new Command(SaveRecipe);
+            SaveRecipeCommand = new Command(async () => await SaveRecipe());
+            BackCommand = new Command(async () => await Back());
         }
 
         public Recipe Recipe
@@ -43,6 +45,8 @@ namespace RecipeApp.ViewModels
 
         private INavigation Navigation { get; set; }
 
+        private IAlertService AlertService { get; set; }
+
         private int? RecipeId { get; set; }
 
         public async Task Load()
@@ -60,9 +64,23 @@ namespace RecipeApp.ViewModels
 
         public ICommand SaveRecipeCommand { get; private set; }
 
-        private async void SaveRecipe()
+        private async Task SaveRecipe()
         {
             await RecipeService.SaveRecipeAsync(Recipe);
+
+            await Navigation.PopModalAsync();
+        }
+
+        public ICommand BackCommand { get; private set; }
+
+        private async Task Back()
+        {
+            var saveChanges = await AlertService.DisplayQuestionAlert("QuestionSaveChanges");
+
+            if (saveChanges)
+            {
+                await SaveRecipe();
+            }
 
             await Navigation.PopModalAsync();
         }

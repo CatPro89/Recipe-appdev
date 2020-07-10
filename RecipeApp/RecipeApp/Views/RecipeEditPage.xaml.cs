@@ -21,9 +21,21 @@ namespace RecipeApp.Views
         {
             base.OnAppearing();
 
-            var recipeEditViewModel = new RecipeEditViewModel(new RecipeService(), Navigation, RecipeId);
+            var recipeEditViewModel = new RecipeEditViewModel(new RecipeService(), Navigation, new AlertService(), RecipeId);
             BindingContext = recipeEditViewModel;
             await recipeEditViewModel.Load();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var recipeEditViewModel = (RecipeEditViewModel)BindingContext;
+
+                recipeEditViewModel.BackCommand.Execute(null);
+            });
+
+            return true;
         }
     }
 }

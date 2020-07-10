@@ -61,6 +61,15 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alert.
+        /// </summary>
+        internal static string Alert {
+            get {
+                return ResourceManager.GetString("Alert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
@@ -88,11 +97,29 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overview.
         /// </summary>
         internal static string Overview {
             get {
                 return ResourceManager.GetString("Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to save your changes?.
+        /// </summary>
+        internal static string QuestionSaveChanges {
+            get {
+                return ResourceManager.GetString("QuestionSaveChanges", resourceCulture);
             }
         }
         
@@ -147,6 +174,15 @@ namespace RecipeApp.Resx {
         internal static string Recipe_Servings {
             get {
                 return ResourceManager.GetString("Recipe_Servings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

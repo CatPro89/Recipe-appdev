@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Alert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -126,8 +129,14 @@
   <data name="Ingredients" xml:space="preserve">
     <value>Ingredients</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="Overview" xml:space="preserve">
     <value>Overview</value>
+  </data>
+  <data name="QuestionSaveChanges" xml:space="preserve">
+    <value>Would you like to save your changes?</value>
   </data>
   <data name="Recipe_BakingCookingTime" xml:space="preserve">
     <value>Baking/Cooking time</value>
@@ -146,5 +155,8 @@
   </data>
   <data name="Recipe_Servings" xml:space="preserve">
     <value>Serving(s)</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>
