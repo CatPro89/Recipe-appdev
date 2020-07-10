@@ -17,7 +17,7 @@ namespace RecipeApp.Views
         {
             base.OnAppearing();
 
-            var recipeListViewModel = new RecipeListViewModel(new RecipeService());
+            var recipeListViewModel = new RecipeListViewModel(new RecipeService(), Navigation);
             BindingContext = recipeListViewModel;
             await recipeListViewModel.Load();
         }

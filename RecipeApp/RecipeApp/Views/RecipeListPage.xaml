@@ -43,6 +43,7 @@
         <controls:FloatingActionButton
                 FontFamily="FA-S"
                 Text="{StaticResource IconAdd}"
+                Command="{Binding AddRecipeCommand}"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-90}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1, Constant=-90}"
                 IsVisible="{Binding IsLoaded}" />

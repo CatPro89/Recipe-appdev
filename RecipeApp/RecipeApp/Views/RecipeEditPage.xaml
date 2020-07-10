@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:resources="clr-namespace:RecipeApp.Resx"
+             x:Class="RecipeApp.Views.RecipeEditPage">
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SaveRecipeCommand}" Order="Primary" Priority="0">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconSave}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </TabbedPage.ToolbarItems>
+
+    <ContentPage Title="{x:Static resources:AppResources.Overview}">
+        <ScrollView>
+            <StackLayout Margin="10,10,10,10">
+                <ImageButton Source="{Binding ImageSource}" Margin="0,0,0,10" />
+                <Label Text="{x:Static resources:AppResources.Recipe_Name}" />
+                <Entry Text="{Binding Recipe.Name}" FontSize="Large" />
+                <Grid ColumnDefinitions="0.5*, 0.5*" RowDefinitions="0.15*, 0.35*, 0.15*, 0.35*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="{x:Static resources:AppResources.Recipe_PreparationTime}" />
+                    <TimePicker Grid.Row="1" Grid.Column="0" Time="{Binding Recipe.PreparationTime}" Format="HH:mm" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="{x:Static resources:AppResources.Recipe_RestTime}" />
+                    <TimePicker Grid.Row="1" Grid.Column="1" Time="{Binding Recipe.RestTime}" Format="HH:mm" />
+                    <Label Grid.Row="2" Grid.Column="0" Text="{x:Static resources:AppResources.Recipe_BakingCookingTime}" />
+                    <TimePicker Grid.Row="3" Grid.Column="0" Time="{Binding Recipe.BakingCookingTime}" Format="HH:mm" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{x:Static resources:AppResources.Recipe_OverallTime}" />
+                    <TimePicker Grid.Row="3" Grid.Column="1" Time="{Binding Recipe.OverallTime}" Format="HH:mm" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resources:AppResources.Ingredients}">
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resources:AppResources.Directions}">
+    </ContentPage>
+
+</TabbedPage>

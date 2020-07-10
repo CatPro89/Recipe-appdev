@@ -1,4 +1,5 @@
-﻿using RecipeApp.Models;
+﻿using RecipeApp.Helpers;
+using RecipeApp.Models;
 using System;
 using Xamarin.Forms;
 
@@ -17,10 +18,7 @@ namespace RecipeApp.ViewModels
         {
             get
             {
-                if (string.IsNullOrEmpty(Recipe.ImagePath))
-                    return ImageSource.FromResource(Constants.Resource_NoImage);
-
-                return ImageSource.FromFile(Recipe.ImagePath);
+                return ImageHelper.GetImageSource(Recipe.ImagePath);
             }
         }
 

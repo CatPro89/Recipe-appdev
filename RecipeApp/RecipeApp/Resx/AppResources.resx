@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Directions" xml:space="preserve">
+    <value>Directions</value>
+  </data>
+  <data name="Ingredients" xml:space="preserve">
+    <value>Ingredients</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Recipe_BakingCookingTime" xml:space="preserve">
+    <value>Baking/Cooking time</value>
+  </data>
+  <data name="Recipe_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Recipe_OverallTime" xml:space="preserve">
+    <value>Overall time</value>
+  </data>
+  <data name="Recipe_PreparationTime" xml:space="preserve">
+    <value>Preparation time</value>
+  </data>
+  <data name="Recipe_RestTime" xml:space="preserve">
+    <value>Rest time</value>
+  </data>
+  <data name="Recipe_Servings" xml:space="preserve">
+    <value>Serving(s)</value>
+  </data>
 </root>

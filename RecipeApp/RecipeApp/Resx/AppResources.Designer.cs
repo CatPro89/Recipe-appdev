@@ -61,92 +61,11 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alert.
-        /// </summary>
-        internal static string Alert {
-            get {
-                return ResourceManager.GetString("Alert", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Recipe App.
-        /// </summary>
-        internal static string AppName {
-            get {
-                return ResourceManager.GetString("AppName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Backup.
-        /// </summary>
-        internal static string Backup {
-            get {
-                return ResourceManager.GetString("Backup", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your recipe backup was successfull..
-        /// </summary>
-        internal static string BackupSuccessful {
-            get {
-                return ResourceManager.GetString("BackupSuccessful", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete.
-        /// </summary>
-        internal static string Delete {
-            get {
-                return ResourceManager.GetString("Delete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Directions.
         /// </summary>
         internal static string Directions {
             get {
                 return ResourceManager.GetString("Directions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error.
-        /// </summary>
-        internal static string Error {
-            get {
-                return ResourceManager.GetString("Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name.
-        /// </summary>
-        internal static string Ingredient_Name {
-            get {
-                return ResourceManager.GetString("Ingredient_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quantity.
-        /// </summary>
-        internal static string Ingredient_Quantity {
-            get {
-                return ResourceManager.GetString("Ingredient_Quantity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unit.
-        /// </summary>
-        internal static string Ingredient_Unit {
-            get {
-                return ResourceManager.GetString("Ingredient_Unit", resourceCulture);
             }
         }
         
@@ -160,65 +79,11 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No.
-        /// </summary>
-        internal static string No {
-            get {
-                return ResourceManager.GetString("No", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No backup found..
-        /// </summary>
-        internal static string NoBackupFound {
-            get {
-                return ResourceManager.GetString("NoBackupFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No photo was picked..
-        /// </summary>
-        internal static string NoPhotoPicked {
-            get {
-                return ResourceManager.GetString("NoPhotoPicked", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ok.
-        /// </summary>
-        internal static string Ok {
-            get {
-                return ResourceManager.GetString("Ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Overview.
         /// </summary>
         internal static string Overview {
             get {
                 return ResourceManager.GetString("Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your device does not currenty support the functionality to pick photos..
-        /// </summary>
-        internal static string PickPhotoNotSupported {
-            get {
-                return ResourceManager.GetString("PickPhotoNotSupported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Would you like to save your changes?.
-        /// </summary>
-        internal static string QuestionSaveChanges {
-            get {
-                return ResourceManager.GetString("QuestionSaveChanges", resourceCulture);
             }
         }
         
@@ -273,123 +138,6 @@ namespace RecipeApp.Resx {
         internal static string Recipe_Servings {
             get {
                 return ResourceManager.GetString("Recipe_Servings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Restore.
-        /// </summary>
-        internal static string Restore {
-            get {
-                return ResourceManager.GetString("Restore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your recipe restore was successfull..
-        /// </summary>
-        internal static string RestoreSuccessful {
-            get {
-                return ResourceManager.GetString("RestoreSuccessful", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Search.
-        /// </summary>
-        internal static string Search {
-            get {
-                return ResourceManager.GetString("Search", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to g.
-        /// </summary>
-        internal static string Unit_Gram {
-            get {
-                return ResourceManager.GetString("Unit_Gram", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ml.
-        /// </summary>
-        internal static string Unit_Milliliter {
-            get {
-                return ResourceManager.GetString("Unit_Milliliter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to pack.
-        /// </summary>
-        internal static string Unit_Pack {
-            get {
-                return ResourceManager.GetString("Unit_Pack", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to pcs.
-        /// </summary>
-        internal static string Unit_Piece {
-            get {
-                return ResourceManager.GetString("Unit_Piece", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to pinch(es).
-        /// </summary>
-        internal static string Unit_Pinch {
-            get {
-                return ResourceManager.GetString("Unit_Pinch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to slice(s).
-        /// </summary>
-        internal static string Unit_Slice {
-            get {
-                return ResourceManager.GetString("Unit_Slice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to tbsp.
-        /// </summary>
-        internal static string Unit_Tablespoon {
-            get {
-                return ResourceManager.GetString("Unit_Tablespoon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to tspn.
-        /// </summary>
-        internal static string Unit_Teaspoon {
-            get {
-                return ResourceManager.GetString("Unit_Teaspoon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string Unit_Undefined {
-            get {
-                return ResourceManager.GetString("Unit_Undefined", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yes.
-        /// </summary>
-        internal static string Yes {
-            get {
-                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }
