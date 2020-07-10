@@ -1,6 +1,5 @@
-﻿using System;
+﻿using RecipeApp.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace RecipeApp
 {
@@ -10,7 +9,7 @@ namespace RecipeApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new RecipeListPage();
         }
 
         protected override void OnStart()
