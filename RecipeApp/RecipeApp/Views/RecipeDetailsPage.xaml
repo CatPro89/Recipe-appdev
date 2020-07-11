@@ -39,6 +39,23 @@
     </ContentPage>
 
     <ContentPage Title="{x:Static resources:AppResources.Directions}">
+        <RelativeLayout Margin="10,10,10,10">
+            <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <ListView ItemsSource="{Binding DirectionDetailsViewModels}" HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <Label Grid.Column="0" Text="{Binding Direction.Order}" />
+                                    <Label Grid.Column="1" Text="{Binding Direction.Description}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentView>
+        </RelativeLayout>
     </ContentPage>
 
 </TabbedPage>

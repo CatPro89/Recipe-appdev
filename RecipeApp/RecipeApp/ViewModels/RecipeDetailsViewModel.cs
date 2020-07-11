@@ -2,7 +2,9 @@
 using RecipeApp.Models;
 using RecipeApp.Services;
 using RecipeApp.Views;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -38,6 +40,10 @@ namespace RecipeApp.ViewModels
                     OnPropertyChanged(nameof(RestTime));
                     OnPropertyChanged(nameof(BakingCookingTime));
                     OnPropertyChanged(nameof(OverallTime));
+
+                    DirectionDetailsViewModels = new ObservableCollection<DirectionDetailsViewModel>(Recipe.Directions
+                        .OrderBy(direction => direction.Order)
+                        .Select(direction => new DirectionDetailsViewModel(direction)));
                 }
             }
         }
@@ -53,6 +59,24 @@ namespace RecipeApp.ViewModels
         public string BakingCookingTime => TimeSpanFormatter.Format(Recipe?.BakingCookingTime);
 
         public string OverallTime => TimeSpanFormatter.Format(Recipe?.OverallTime);
+
+        public ObservableCollection<DirectionDetailsViewModel> DirectionDetailsViewModels
+        {
+            get
+            {
+                return directionDetailsViewModels;
+            }
+            set
+            {
+                if (directionDetailsViewModels != value)
+                {
+                    directionDetailsViewModels = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private ObservableCollection<DirectionDetailsViewModel> directionDetailsViewModels;
 
         private IRecipeService RecipeService { get; set; }
 
