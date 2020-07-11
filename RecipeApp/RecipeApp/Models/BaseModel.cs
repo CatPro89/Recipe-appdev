@@ -7,7 +7,7 @@ namespace RecipeApp.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void RaisePropertyChange([CallerMemberName] string propertyname = null)
+        protected void RaisePropertyChanged([CallerMemberName] string propertyname = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }

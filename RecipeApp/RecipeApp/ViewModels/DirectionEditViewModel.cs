@@ -22,7 +22,7 @@ namespace RecipeApp.ViewModels
                 if (direction != value)
                 {
                     direction = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }

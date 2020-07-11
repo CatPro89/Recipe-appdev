@@ -29,7 +29,7 @@ namespace RecipeApp.ViewModels
                 if (unit != value)
                 {
                     unit = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace RecipeApp.ViewModels
                 if (displayName != value)
                 {
                     displayName = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }

@@ -24,7 +24,7 @@ namespace RecipeApp.ViewModels
                 if (recipe != value)
                 {
                     recipe = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
 
                     OnPropertyChanged(nameof(ImageSource));
                     OnPropertyChanged(nameof(PreparationTime));

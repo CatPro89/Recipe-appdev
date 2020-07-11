@@ -26,7 +26,7 @@ namespace RecipeApp.ViewModels
                 if (ingredient != value)
                 {
                     ingredient = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
 
                     OnPropertyChanged(nameof(UnitDisplayName));
                 }

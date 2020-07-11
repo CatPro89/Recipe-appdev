@@ -36,7 +36,7 @@ namespace RecipeApp.ViewModels
                 if (recipe != value)
                 {
                     recipe = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
 
                     OnPropertyChanged(nameof(ImageSource));
                     OnPropertyChanged(nameof(PreparationTime));
@@ -78,7 +78,7 @@ namespace RecipeApp.ViewModels
                 if (ingredientDetailsViewModels != value)
                 {
                     ingredientDetailsViewModels = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -96,7 +96,7 @@ namespace RecipeApp.ViewModels
                 if (directionDetailsViewModels != value)
                 {
                     directionDetailsViewModels = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }

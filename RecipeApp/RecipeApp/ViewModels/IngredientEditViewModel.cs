@@ -26,7 +26,7 @@ namespace RecipeApp.ViewModels
                 if (ingredient != value)
                 {
                     ingredient = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace RecipeApp.ViewModels
                 if (unitViewModels != value)
                 {
                     unitViewModels = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace RecipeApp.ViewModels
             set
             {
                 Ingredient.Unit = value?.Unit ?? Unit.Undefined;
-                RaisePropertyChange();
+                RaisePropertyChanged();
             }
         }
 

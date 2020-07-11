@@ -35,7 +35,7 @@ namespace RecipeApp.ViewModels
                 if (searchText != value)
                 {
                     searchText = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                     Search();
                 }
             }
@@ -54,7 +54,7 @@ namespace RecipeApp.ViewModels
                 if (isLoading != value)
                 {
                     isLoading = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
 
                     OnPropertyChanged(nameof(IsLoaded));
                 }
@@ -74,7 +74,7 @@ namespace RecipeApp.ViewModels
                 if (recipeRowViewModels != value)
                 {
                     recipeRowViewModels = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }

@@ -25,6 +25,7 @@ namespace RecipeApp.ViewModels
             RecipeId = recipeId;
             SelectImageCommand = new Command(async () => await SelectImage());
             SaveRecipeCommand = new Command(async () => await SaveRecipe());
+            CloseCommand = new Command(async () => await Close());
             BackCommand = new Command(async () => await Back());
             ChangeServingsCommand = new Command<ValueChangedEventArgs>(ChangeServings);
             AddIngredientCommand = new Command(AddIngredient);
@@ -78,7 +79,7 @@ namespace RecipeApp.ViewModels
                 if (ingredientEditViewModels != value)
                 {
                     ingredientEditViewModels = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -96,7 +97,7 @@ namespace RecipeApp.ViewModels
                 if (directionEditViewModels != value)
                 {
                     directionEditViewModels = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -174,9 +175,21 @@ namespace RecipeApp.ViewModels
             await Navigation.PopModalAsync();
         }
 
+        public ICommand CloseCommand { get; private set; }
+
+        private async Task Close()
+        {
+            await SuggestSaveAndReturnToPreviousPage();
+        }
+
         public ICommand BackCommand { get; private set; }
 
         private async Task Back()
+        {
+            await SuggestSaveAndReturnToPreviousPage();
+        }
+
+        private async Task SuggestSaveAndReturnToPreviousPage()
         {
             var saveChanges = await AlertService.DisplayQuestionAlert(nameof(AppResources.QuestionSaveChanges));
 

@@ -126,6 +126,9 @@
   <data name="Directions" xml:space="preserve">
     <value>Zubereitung</value>
   </data>
+  <data name="EditRecipe" xml:space="preserve">
+    <value>Rezept bearbeiten</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Fehler</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="QuestionSaveChanges" xml:space="preserve">
     <value>Möchtest du deine Änderungen speichern?</value>
   </data>
+  <data name="RecipeDetails" xml:space="preserve">
+    <value>Rezeptdetails</value>
+  </data>
   <data name="Recipe_BakingCookingTime" xml:space="preserve">
     <value>Back-/Kochzeit</value>
   </data>
@@ -178,7 +184,7 @@
     <value>Portion(en)</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Suchen</value>
+    <value>Suche Rezept(e)</value>
   </data>
   <data name="Unit_Gram" xml:space="preserve">
     <value>g</value>

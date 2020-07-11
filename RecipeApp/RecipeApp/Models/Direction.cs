@@ -24,7 +24,7 @@ namespace RecipeApp.Models
                 if (order != value)
                 {
                     order = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace RecipeApp.Models
                 if (description != value)
                 {
                     description = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }

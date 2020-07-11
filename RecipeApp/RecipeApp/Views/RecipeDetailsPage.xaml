@@ -5,12 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:resources="clr-namespace:RecipeApp.Resx"
-             x:Class="RecipeApp.Views.RecipeDetailsPage">
+             x:Class="RecipeApp.Views.RecipeDetailsPage"
+             Title="{x:Static resources:AppResources.RecipeDetails}">
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Command="{Binding EditRecipeCommand}" Order="Primary" Priority="0">
             <ToolbarItem.IconImageSource>
-                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconEdit}" />
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconEdit}" Size="Title" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
         <ToolbarItem Text="{x:Static resources:AppResources.Delete}" Command="{Binding DeleteRecipeCommand}" Order="Secondary" Priority="0" />

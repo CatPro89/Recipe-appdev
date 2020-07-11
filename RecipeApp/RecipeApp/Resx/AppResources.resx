@@ -126,6 +126,9 @@
   <data name="Directions" xml:space="preserve">
     <value>Directions</value>
   </data>
+  <data name="EditRecipe" xml:space="preserve">
+    <value>Edit recipe</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="QuestionSaveChanges" xml:space="preserve">
     <value>Would you like to save your changes?</value>
   </data>
+  <data name="RecipeDetails" xml:space="preserve">
+    <value>Recipe details</value>
+  </data>
   <data name="Recipe_BakingCookingTime" xml:space="preserve">
     <value>Baking/Cooking time</value>
   </data>
@@ -178,7 +184,7 @@
     <value>Serving(s)</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search</value>
+    <value>Search recipe(s)</value>
   </data>
   <data name="Unit_Gram" xml:space="preserve">
     <value>g</value>

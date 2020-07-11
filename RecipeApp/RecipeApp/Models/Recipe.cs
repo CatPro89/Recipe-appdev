@@ -29,7 +29,7 @@ namespace RecipeApp.Models
                 if (name != value)
                 {
                     name = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace RecipeApp.Models
                 if (imagePath != value)
                 {
                     imagePath = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace RecipeApp.Models
                 if (servings != value)
                 {
                     servings = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace RecipeApp.Models
                 if (preparationTime != value)
                 {
                     preparationTime = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace RecipeApp.Models
                 if (restTime != value)
                 {
                     restTime = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace RecipeApp.Models
                 if (bakingCookingTime != value)
                 {
                     bakingCookingTime = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -137,7 +137,7 @@ namespace RecipeApp.Models
                 if (overallTime != value)
                 {
                     overallTime = value;
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -155,7 +155,7 @@ namespace RecipeApp.Models
                 if (ingredients != value)
                 {
                     ingredients = value.ToList();
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace RecipeApp.Models
                 if (directions != value)
                 {
                     directions = value.ToList();
-                    RaisePropertyChange();
+                    RaisePropertyChanged();
                 }
             }
         }

@@ -7,12 +7,18 @@
              xmlns:controls="clr-namespace:RecipeApp.Controls"
              xmlns:resources="clr-namespace:RecipeApp.Resx"
              xmlns:viewmodels="clr-namespace:RecipeApp.ViewModels"
-             x:Class="RecipeApp.Views.RecipeEditPage">
+             x:Class="RecipeApp.Views.RecipeEditPage"
+             Title="{x:Static resources:AppResources.EditRecipe}">
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveRecipeCommand}" Order="Primary" Priority="0">
             <ToolbarItem.IconImageSource>
-                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconSave}" />
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconSave}" Size="Title" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding CloseCommand}" Order="Primary" Priority="1">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconClose}" Size="Title" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </TabbedPage.ToolbarItems>

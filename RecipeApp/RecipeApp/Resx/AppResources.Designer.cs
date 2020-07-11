@@ -88,6 +88,15 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit recipe.
+        /// </summary>
+        internal static string EditRecipe {
+            get {
+                return ResourceManager.GetString("EditRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string Error {
@@ -241,7 +250,16 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search.
+        ///   Looks up a localized string similar to Recipe details.
+        /// </summary>
+        internal static string RecipeDetails {
+            get {
+                return ResourceManager.GetString("RecipeDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search recipe(s).
         /// </summary>
         internal static string Search {
             get {
