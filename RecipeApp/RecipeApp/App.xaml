@@ -9,6 +9,9 @@
         <x:String x:Key="IconAdd">&#xf067;</x:String>
         <x:String x:Key="IconEdit">&#xf044;</x:String>
         <x:String x:Key="IconSave">&#xf0c7;</x:String>
+        <x:String x:Key="IconDelete">&#xf1f8;</x:String>
+        <x:String x:Key="IconUp">&#xf077;</x:String>
+        <x:String x:Key="IconDown">&#xf078;</x:String>
         <x:String x:Key="IconPreparationTime">&#xf5a7;</x:String>
         <x:String x:Key="IconRestTime">&#xf252;</x:String>
         <x:String x:Key="IconBakingCookingTime">&#xf769;</x:String>

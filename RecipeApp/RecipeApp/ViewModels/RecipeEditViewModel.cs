@@ -4,7 +4,9 @@ using RecipeApp.Helpers;
 using RecipeApp.Models;
 using RecipeApp.Resx;
 using RecipeApp.Services;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -22,6 +24,10 @@ namespace RecipeApp.ViewModels
             SelectImageCommand = new Command(async () => await SelectImage());
             SaveRecipeCommand = new Command(async () => await SaveRecipe());
             BackCommand = new Command(async () => await Back());
+            AddDirectionCommand = new Command(AddDirection);
+            DecreaseDirectionOrderCommand = new Command<DirectionEditViewModel>((directionEditViewModel) => DecreaseDirectionOrder(directionEditViewModel));
+            IncreaseDirectionOrderCommand = new Command<DirectionEditViewModel>((directionEditViewModel) => IncreaseDirectionOrder(directionEditViewModel));
+            DeleteDirectionCommand = new Command<DirectionEditViewModel>((directionEditViewModel) => DeleteDirection(directionEditViewModel));
         }
 
         public Recipe Recipe
@@ -38,6 +44,10 @@ namespace RecipeApp.ViewModels
 
                     OnPropertyChanged(nameof(Recipe));
                     OnPropertyChanged(nameof(ImageSource));
+
+                    DirectionEditViewModels = new ObservableCollection<DirectionEditViewModel>(Recipe.Directions
+                        .OrderBy(direction => direction.Order)
+                        .Select(direction => new DirectionEditViewModel(direction)));
                 }
             }
         }
@@ -45,6 +55,24 @@ namespace RecipeApp.ViewModels
         private Recipe recipe;
 
         public ImageSource ImageSource => ImageHelper.GetImageSource(Recipe?.ImagePath);
+
+        public ObservableCollection<DirectionEditViewModel> DirectionEditViewModels
+        {
+            get
+            {
+                return directionEditViewModels;
+            }
+            set
+            {
+                if (directionEditViewModels != value)
+                {
+                    directionEditViewModels = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private ObservableCollection<DirectionEditViewModel> directionEditViewModels;
 
         private IRecipeService RecipeService { get; set; }
 
@@ -129,6 +157,46 @@ namespace RecipeApp.ViewModels
             }
 
             await Navigation.PopModalAsync();
+        }
+
+        public ICommand AddDirectionCommand { get; private set; }
+
+        private void AddDirection()
+        {
+            var direction = Recipe.CreateDirection();
+
+            DirectionEditViewModels.Add(new DirectionEditViewModel(direction));
+        }
+
+        public ICommand DecreaseDirectionOrderCommand { get; private set; }
+
+        private void DecreaseDirectionOrder(DirectionEditViewModel directionEditViewModel)
+        {
+            if (Recipe.DecreaseOrder(directionEditViewModel.Direction))
+            {
+                var index = DirectionEditViewModels.IndexOf(directionEditViewModel);
+                DirectionEditViewModels.Move(index, index - 1);
+            }
+        }
+
+        public ICommand IncreaseDirectionOrderCommand { get; private set; }
+
+        private void IncreaseDirectionOrder(DirectionEditViewModel directionEditViewModel)
+        {
+            if (Recipe.IncreaseOrder(directionEditViewModel.Direction))
+            {
+                var index = DirectionEditViewModels.IndexOf(directionEditViewModel);
+                DirectionEditViewModels.Move(index, index + 1);
+            }
+        }
+
+        public ICommand DeleteDirectionCommand { get; private set; }
+
+        private void DeleteDirection(DirectionEditViewModel directionEditViewModel)
+        {
+            Recipe.Remove(directionEditViewModel.Direction);
+
+            DirectionEditViewModels.Remove(directionEditViewModel);
         }
     }
 }

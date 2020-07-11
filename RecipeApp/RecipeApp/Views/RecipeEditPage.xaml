@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:controls="clr-namespace:RecipeApp.Controls"
              xmlns:resources="clr-namespace:RecipeApp.Resx"
+             xmlns:viewmodels="clr-namespace:RecipeApp.ViewModels"
              x:Class="RecipeApp.Views.RecipeEditPage">
 
     <TabbedPage.ToolbarItems>
@@ -39,6 +41,53 @@
     </ContentPage>
 
     <ContentPage Title="{x:Static resources:AppResources.Directions}">
+        <RelativeLayout Margin="10,10,10,10">
+            <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <ListView ItemsSource="{Binding DirectionEditViewModels}" HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="Auto, *, Auto, Auto, Auto">
+                                    <Label Grid.Column="0" Text="{Binding Direction.Order}" />
+                                    <Editor Grid.Column="1" Text="{Binding Direction.Description}" AutoSize="TextChanges" />
+                                    <ImageButton Grid.Column="2"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=DecreaseDirectionOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconUp}" Color="LightGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="3"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=IncreaseDirectionOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconDown}" Color="LightGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="4"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=DeleteDirectionCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconDelete}" Color="LightGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentView>
+            <controls:FloatingActionButton
+                Command="{Binding AddDirectionCommand}"
+                FontFamily="FA-S"
+                Text="{StaticResource IconAdd}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-90}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1, Constant=-90}" />
+        </RelativeLayout>
     </ContentPage>
 
 </TabbedPage>
