@@ -1,7 +1,9 @@
 ﻿using RecipeApp.Models;
+using System.Diagnostics;
 
 namespace RecipeApp.ViewModels
 {
+    [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class DirectionDetailsViewModel : BaseModel
     {
         public DirectionDetailsViewModel(Direction direction)
@@ -26,5 +28,7 @@ namespace RecipeApp.ViewModels
         }
 
         private Direction direction;
+
+        private string DebuggerDisplay => $"{Direction?.Order} {Direction?.Description}";
     }
 }

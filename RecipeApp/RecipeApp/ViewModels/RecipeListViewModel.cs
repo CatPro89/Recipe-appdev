@@ -3,6 +3,7 @@ using RecipeApp.Services;
 using RecipeApp.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -10,6 +11,7 @@ using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
+    [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class RecipeListViewModel : BaseModel
     {
         public RecipeListViewModel(IRecipeService recipeService, INavigation navigation)
@@ -52,7 +54,8 @@ namespace RecipeApp.ViewModels
                 if (isLoading != value)
                 {
                     isLoading = value;
-                    OnPropertyChanged(nameof(IsLoading));
+                    RaisePropertyChange();
+
                     OnPropertyChanged(nameof(IsLoaded));
                 }
             }
@@ -71,7 +74,7 @@ namespace RecipeApp.ViewModels
                 if (recipeRowViewModels != value)
                 {
                     recipeRowViewModels = value;
-                    OnPropertyChanged(nameof(RecipeRowViewModels));
+                    RaisePropertyChange();
                 }
             }
         }
@@ -120,5 +123,7 @@ namespace RecipeApp.ViewModels
         {
             await Navigation.PushAsync(new RecipeDetailsPage(recipeId));
         }
+
+        private string DebuggerDisplay => $"{SearchText} {RecipeRowViewModels?.Count}";
     }
 }

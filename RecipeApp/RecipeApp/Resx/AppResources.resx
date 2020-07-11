@@ -132,6 +132,15 @@
   <data name="Ingredients" xml:space="preserve">
     <value>Ingredients</value>
   </data>
+  <data name="Ingredient_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Ingredient_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Ingredient_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
@@ -170,6 +179,33 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="Unit_Gram" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="Unit_Milliliter" xml:space="preserve">
+    <value>ml</value>
+  </data>
+  <data name="Unit_Pack" xml:space="preserve">
+    <value>pack</value>
+  </data>
+  <data name="Unit_Piece" xml:space="preserve">
+    <value>pcs</value>
+  </data>
+  <data name="Unit_Pinch" xml:space="preserve">
+    <value>pinch(es)</value>
+  </data>
+  <data name="Unit_Slice" xml:space="preserve">
+    <value>slice(s)</value>
+  </data>
+  <data name="Unit_Tablespoon" xml:space="preserve">
+    <value>tbsp</value>
+  </data>
+  <data name="Unit_Teaspoon" xml:space="preserve">
+    <value>tspn</value>
+  </data>
+  <data name="Unit_Undefined" xml:space="preserve">
+    <value />
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

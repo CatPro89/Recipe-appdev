@@ -4,6 +4,7 @@ using RecipeApp.Services;
 using RecipeApp.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
+    [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class RecipeDetailsViewModel : BaseModel
     {
         public RecipeDetailsViewModel(IRecipeService recipeService, INavigation navigation, int recipeId)
@@ -33,8 +35,8 @@ namespace RecipeApp.ViewModels
                 if (recipe != value)
                 {
                     recipe = value;
+                    RaisePropertyChange();
 
-                    OnPropertyChanged(nameof(Recipe));
                     OnPropertyChanged(nameof(ImageSource));
                     OnPropertyChanged(nameof(PreparationTime));
                     OnPropertyChanged(nameof(RestTime));
@@ -123,5 +125,7 @@ namespace RecipeApp.ViewModels
 
             await Navigation.PopAsync();
         }
+
+        private string DebuggerDisplay => Recipe?.Name;
     }
 }

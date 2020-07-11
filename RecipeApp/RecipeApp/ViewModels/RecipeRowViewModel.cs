@@ -1,9 +1,11 @@
 ﻿using RecipeApp.Helpers;
 using RecipeApp.Models;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace RecipeApp.ViewModels
 {
+    [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class RecipeRowViewModel : BaseModel
     {
         public RecipeRowViewModel(Recipe recipe)
@@ -22,8 +24,8 @@ namespace RecipeApp.ViewModels
                 if (recipe != value)
                 {
                     recipe = value;
+                    RaisePropertyChange();
 
-                    OnPropertyChanged(nameof(Recipe));
                     OnPropertyChanged(nameof(ImageSource));
                     OnPropertyChanged(nameof(PreparationTime));
                     OnPropertyChanged(nameof(RestTime));
@@ -44,5 +46,7 @@ namespace RecipeApp.ViewModels
         public string BakingCookingTime => TimeSpanFormatter.Format(Recipe.BakingCookingTime);
 
         public string OverallTime => TimeSpanFormatter.Format(Recipe.OverallTime);
+
+        private string DebuggerDisplay => Recipe?.Name;
     }
 }

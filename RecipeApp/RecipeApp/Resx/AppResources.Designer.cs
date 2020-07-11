@@ -97,6 +97,33 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Ingredient_Name {
+            get {
+                return ResourceManager.GetString("Ingredient_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity.
+        /// </summary>
+        internal static string Ingredient_Quantity {
+            get {
+                return ResourceManager.GetString("Ingredient_Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit.
+        /// </summary>
+        internal static string Ingredient_Unit {
+            get {
+                return ResourceManager.GetString("Ingredient_Unit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ingredients.
         /// </summary>
         internal static string Ingredients {
@@ -219,6 +246,87 @@ namespace RecipeApp.Resx {
         internal static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to g.
+        /// </summary>
+        internal static string Unit_Gram {
+            get {
+                return ResourceManager.GetString("Unit_Gram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ml.
+        /// </summary>
+        internal static string Unit_Milliliter {
+            get {
+                return ResourceManager.GetString("Unit_Milliliter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pack.
+        /// </summary>
+        internal static string Unit_Pack {
+            get {
+                return ResourceManager.GetString("Unit_Pack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pcs.
+        /// </summary>
+        internal static string Unit_Piece {
+            get {
+                return ResourceManager.GetString("Unit_Piece", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pinch(es).
+        /// </summary>
+        internal static string Unit_Pinch {
+            get {
+                return ResourceManager.GetString("Unit_Pinch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to slice(s).
+        /// </summary>
+        internal static string Unit_Slice {
+            get {
+                return ResourceManager.GetString("Unit_Slice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tbsp.
+        /// </summary>
+        internal static string Unit_Tablespoon {
+            get {
+                return ResourceManager.GetString("Unit_Tablespoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tspn.
+        /// </summary>
+        internal static string Unit_Teaspoon {
+            get {
+                return ResourceManager.GetString("Unit_Teaspoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Unit_Undefined {
+            get {
+                return ResourceManager.GetString("Unit_Undefined", resourceCulture);
             }
         }
         

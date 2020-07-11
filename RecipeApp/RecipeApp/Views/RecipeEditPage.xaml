@@ -38,6 +38,64 @@
     </ContentPage>
 
     <ContentPage Title="{x:Static resources:AppResources.Ingredients}">
+        <RelativeLayout Margin="10,10,10,10">
+            <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <ListView ItemsSource="{Binding IngredientEditViewModels}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="0.25*, 0.25*, 0.5*, Auto, Auto, Auto">
+                                    <Entry Grid.Column="0"
+                                               Placeholder="{x:Static resources:AppResources.Ingredient_Quantity}"
+                                               Text="{Binding Ingredient.Quantity}"
+                                               Keyboard="Numeric" />
+                                    <Picker Grid.Column="1"
+                                                Title="{x:Static resources:AppResources.Ingredient_Unit}"
+                                                ItemsSource="{Binding UnitViewModels}"
+                                                ItemDisplayBinding="{Binding DisplayName}"
+                                                SelectedItem="{Binding SelectedUnitViewModel}"
+                                                SelectedIndex="{Binding SelectedIndex}" />
+                                    <Entry Grid.Column="2"
+                                               Placeholder="{x:Static resources:AppResources.Ingredient_Name}"
+                                               Text="{Binding Ingredient.Name}" />
+                                    <ImageButton Grid.Column="3"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=DecreaseIngredientOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconUp}" Color="LightGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="4"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=IncreaseIngredientOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconDown}" Color="LightGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="5"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=DeleteIngredientCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconDelete}" Color="LightGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentView>
+            <controls:FloatingActionButton
+                Command="{Binding AddIngredientCommand}"
+                FontFamily="FA-S"
+                Text="{StaticResource IconAdd}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-90}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1, Constant=-90}" />
+        </RelativeLayout>
     </ContentPage>
 
     <ContentPage Title="{x:Static resources:AppResources.Directions}">
