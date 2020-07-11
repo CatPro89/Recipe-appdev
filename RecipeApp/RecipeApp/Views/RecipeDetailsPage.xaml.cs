@@ -25,5 +25,14 @@ namespace RecipeApp.Views
             BindingContext = recipeDetailsViewModel;
             await recipeDetailsViewModel.Load();
         }
+
+        void OnServingsChanged(object sender, ValueChangedEventArgs e)
+        {
+            var recipeDetailsViewModel = (RecipeDetailsViewModel)BindingContext;
+            if (recipeDetailsViewModel == null)
+                return;
+
+            recipeDetailsViewModel.ChangeServingsCommand.Execute(e);
+        }
     }
 }

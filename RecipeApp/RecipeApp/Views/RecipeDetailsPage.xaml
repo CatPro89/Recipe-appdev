@@ -39,19 +39,26 @@
         <RelativeLayout Margin="10,10,10,10">
             <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <ListView ItemsSource="{Binding IngredientDetailsViewModels}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid ColumnDefinitions="0.15*, 0.15*, 0.7*">
-                                    <Label Grid.Column="0" Text="{Binding Ingredient.Quantity}" />
-                                    <Label Grid.Column="1" Text="{Binding UnitDisplayName}" />
-                                    <Label Grid.Column="2" Text="{Binding Ingredient.Name}" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" VerticalOptions="Center" />
+                        <Label Text="{x:Static resources:AppResources.Recipe_Servings}" VerticalOptions="Center" />
+                        <Stepper x:Name="stepper" Value="{Binding Recipe.Servings}" ValueChanged="OnServingsChanged" Minimum="1" />
+                    </StackLayout>
+                    <ListView ItemsSource="{Binding IngredientDetailsViewModels}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnDefinitions="0.15*, 0.15*, 0.7*">
+                                        <Label Grid.Column="0" Text="{Binding Ingredient.Quantity}" />
+                                        <Label Grid.Column="1" Text="{Binding UnitDisplayName}" />
+                                        <Label Grid.Column="2" Text="{Binding Ingredient.Name}" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
             </ContentView>
         </RelativeLayout>
     </ContentPage>

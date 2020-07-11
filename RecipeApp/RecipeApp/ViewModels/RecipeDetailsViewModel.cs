@@ -22,6 +22,7 @@ namespace RecipeApp.ViewModels
             RecipeId = recipeId;
             EditRecipeCommand = new Command(EditRecipe);
             DeleteRecipeCommand = new Command(DeleteRecipe);
+            ChangeServingsCommand = new Command<ValueChangedEventArgs>(ChangeServings);
         }
 
         public Recipe Recipe
@@ -146,6 +147,19 @@ namespace RecipeApp.ViewModels
             await RecipeService.DeleteRecipeAsync(Recipe);
 
             await Navigation.PopAsync();
+        }
+
+        public ICommand ChangeServingsCommand { get; private set; }
+
+        private void ChangeServings(ValueChangedEventArgs e)
+        {
+            if (e.OldValue == 0 || e.NewValue == 0 || IngredientDetailsViewModels == null)
+                return;
+
+            foreach (var ingredientDetailsViewModel in IngredientDetailsViewModels)
+            {
+                ingredientDetailsViewModel.Ingredient.Quantity = ingredientDetailsViewModel.Ingredient.Quantity / e.OldValue * e.NewValue;
+            }
         }
 
         private string DebuggerDisplay => Recipe?.Name;

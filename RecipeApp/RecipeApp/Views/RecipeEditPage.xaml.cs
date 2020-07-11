@@ -26,6 +26,15 @@ namespace RecipeApp.Views
             await recipeEditViewModel.Load();
         }
 
+        void OnServingsChanged(object sender, ValueChangedEventArgs e)
+        {
+            var recipeEditViewModel = (RecipeEditViewModel)BindingContext;
+            if (recipeEditViewModel == null)
+                return;
+
+            recipeEditViewModel.ChangeServingsCommand.Execute(e);
+        }
+
         protected override bool OnBackButtonPressed()
         {
             Device.BeginInvokeOnMainThread(() =>

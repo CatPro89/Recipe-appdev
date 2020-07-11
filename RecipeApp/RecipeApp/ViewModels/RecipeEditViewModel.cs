@@ -26,14 +26,15 @@ namespace RecipeApp.ViewModels
             SelectImageCommand = new Command(async () => await SelectImage());
             SaveRecipeCommand = new Command(async () => await SaveRecipe());
             BackCommand = new Command(async () => await Back());
+            ChangeServingsCommand = new Command<ValueChangedEventArgs>(ChangeServings);
             AddIngredientCommand = new Command(AddIngredient);
-            DecreaseIngredientOrderCommand = new Command<IngredientEditViewModel>((ingredientEditViewModel) => DecreaseIngredientOrder(ingredientEditViewModel));
-            IncreaseIngredientOrderCommand = new Command<IngredientEditViewModel>((ingredientEditViewModel) => IncreaseIngredientOrder(ingredientEditViewModel));
-            DeleteIngredientCommand = new Command<IngredientEditViewModel>((ingredientEditViewModel) => DeleteIngredient(ingredientEditViewModel));
+            DecreaseIngredientOrderCommand = new Command<IngredientEditViewModel>(DecreaseIngredientOrder);
+            IncreaseIngredientOrderCommand = new Command<IngredientEditViewModel>(IncreaseIngredientOrder);
+            DeleteIngredientCommand = new Command<IngredientEditViewModel>(DeleteIngredient);
             AddDirectionCommand = new Command(AddDirection);
-            DecreaseDirectionOrderCommand = new Command<DirectionEditViewModel>((directionEditViewModel) => DecreaseDirectionOrder(directionEditViewModel));
-            IncreaseDirectionOrderCommand = new Command<DirectionEditViewModel>((directionEditViewModel) => IncreaseDirectionOrder(directionEditViewModel));
-            DeleteDirectionCommand = new Command<DirectionEditViewModel>((directionEditViewModel) => DeleteDirection(directionEditViewModel));
+            DecreaseDirectionOrderCommand = new Command<DirectionEditViewModel>(DecreaseDirectionOrder);
+            IncreaseDirectionOrderCommand = new Command<DirectionEditViewModel>(IncreaseDirectionOrder);
+            DeleteDirectionCommand = new Command<DirectionEditViewModel>(DeleteDirection);
         }
 
         public Recipe Recipe
@@ -185,6 +186,19 @@ namespace RecipeApp.ViewModels
             }
 
             await Navigation.PopModalAsync();
+        }
+
+        public ICommand ChangeServingsCommand { get; private set; }
+
+        private void ChangeServings(ValueChangedEventArgs e)
+        {
+            if (e.OldValue == 0 || e.NewValue == 0 || IngredientEditViewModels == null)
+                return;
+
+            foreach (var ingredientEditViewModel in IngredientEditViewModels)
+            {
+                ingredientEditViewModel.Ingredient.Quantity = ingredientEditViewModel.Ingredient.Quantity / e.OldValue * e.NewValue;
+            }
         }
 
         public ICommand AddIngredientCommand { get; private set; }
