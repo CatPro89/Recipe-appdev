@@ -43,6 +43,10 @@ namespace RecipeApp.ViewModels
                     OnPropertyChanged(nameof(BakingCookingTime));
                     OnPropertyChanged(nameof(OverallTime));
 
+                    IngredientDetailsViewModels = new ObservableCollection<IngredientDetailsViewModel>(Recipe.Ingredients
+                        .OrderBy(ingredient => ingredient.Order)
+                        .Select(ingredient => new IngredientDetailsViewModel(ingredient)));
+
                     DirectionDetailsViewModels = new ObservableCollection<DirectionDetailsViewModel>(Recipe.Directions
                         .OrderBy(direction => direction.Order)
                         .Select(direction => new DirectionDetailsViewModel(direction)));
@@ -61,6 +65,24 @@ namespace RecipeApp.ViewModels
         public string BakingCookingTime => TimeSpanFormatter.Format(Recipe?.BakingCookingTime);
 
         public string OverallTime => TimeSpanFormatter.Format(Recipe?.OverallTime);
+
+        public ObservableCollection<IngredientDetailsViewModel> IngredientDetailsViewModels
+        {
+            get
+            {
+                return ingredientDetailsViewModels;
+            }
+            set
+            {
+                if (ingredientDetailsViewModels != value)
+                {
+                    ingredientDetailsViewModels = value;
+                    RaisePropertyChange();
+                }
+            }
+        }
+
+        private ObservableCollection<IngredientDetailsViewModel> ingredientDetailsViewModels;
 
         public ObservableCollection<DirectionDetailsViewModel> DirectionDetailsViewModels
         {
