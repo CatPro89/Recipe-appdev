@@ -17,9 +17,29 @@ namespace RecipeApp.ViewModels
             RecipeService = recipeService;
             Navigation = navigation;
             RecipeRowViewModels = new ObservableCollection<RecipeRowViewModel>();
+            SearchCommand = new Command(Search);
             AddRecipeCommand = new Command(AddRecipe);
             ShowRecipeDetailsCommand = new Command<int>(ShowRecipeDetails);
         }
+
+        public string SearchText
+        {
+            get
+            {
+                return searchText;
+            }
+            set
+            {
+                if (searchText != value)
+                {
+                    searchText = value;
+                    RaisePropertyChange();
+                    Search();
+                }
+            }
+        }
+
+        private string searchText;
 
         public bool IsLoading
         {
@@ -76,8 +96,15 @@ namespace RecipeApp.ViewModels
         {
             return Task.Run(() =>
             {
-                return RecipeService.GetRecipesAsync();
+                return RecipeService.GetRecipesAsync(SearchText);
             });
+        }
+
+        public ICommand SearchCommand { get; private set; }
+
+        private async void Search()
+        {
+            await Load();
         }
 
         public ICommand AddRecipeCommand { get; private set; }

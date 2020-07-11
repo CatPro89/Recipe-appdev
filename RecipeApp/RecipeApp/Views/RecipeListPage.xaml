@@ -5,7 +5,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:RecipeApp.Controls"
+             xmlns:resources="clr-namespace:RecipeApp.Resx"
              x:Class="RecipeApp.Views.RecipeListPage">
+
+    <NavigationPage.TitleView>
+        <SearchBar x:Name="searchBar"
+                   Placeholder="{x:Static resources:AppResources.Search}"
+                   Text="{Binding SearchText}"
+                   SearchCommand="{Binding SearchCommand}" />
+    </NavigationPage.TitleView>
+
     <RelativeLayout Margin="10,10,10,10">
         <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
@@ -51,4 +60,5 @@
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1, Constant=-90}"
                 IsVisible="{Binding IsLoaded}" />
     </RelativeLayout>
+
 </ContentPage>

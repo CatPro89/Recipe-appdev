@@ -168,6 +168,9 @@
   <data name="Recipe_Servings" xml:space="preserve">
     <value>Serving(s)</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
