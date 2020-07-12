@@ -2,7 +2,7 @@
 
 A Xamarin.Forms recipe app (currently only for Android) that uses Entity Framework Core to access an SQLite database.
 
-[![License](https://img.shields.io/github/license/hocnat/RecipeApp)](https://img.shields.io/github/license/hocnat/RecipeApp)
+[![License](https://img.shields.io/github/license/hocnat/RecipeApp)](https://github.com/hocnat/RecipeApp/blob/master/LICENSE)
 
 ## Motivation
 
