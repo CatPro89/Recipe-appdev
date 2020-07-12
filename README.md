@@ -50,10 +50,11 @@ Open app `Recipes`
 
 ## Built with
 
-* [Xamarin.Forms](https://www.nuget.org/packages/Xamarin.Forms/4.7.0.1080) - Microsoft - [MIT](https://licenses.nuget.org/MIT)
-* [Xamarin.Essentials](https://www.nuget.org/packages/Xamarin.Essentials/1.5.3.2) - Microsoft - [MIT](https://www.nuget.org/packages/Xamarin.Essentials/1.5.3.2/License)
-* [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite/3.1.5) - Microsoft - [Apache-2.0](https://licenses.nuget.org/Apache-2.0)
-* [Xam.Media.Plugin](https://www.nuget.org/packages/Xam.Plugin.Media/5.0.1) - James Montemagno - [MIT](https://github.com/jamesmontemagno/MediaPlugin/blob/master/LICENSE)
+* [Xamarin.Forms](https://www.nuget.org/packages/Xamarin.Forms/4.7.0.1080) - Microsoft - [MIT License](https://licenses.nuget.org/MIT)
+* [Xamarin.Essentials](https://www.nuget.org/packages/Xamarin.Essentials/1.5.3.2) - Microsoft - [MIT License](https://www.nuget.org/packages/Xamarin.Essentials/1.5.3.2/License)
+* [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite/3.1.5) - Microsoft - [Apache-2.0 License](https://licenses.nuget.org/Apache-2.0)
+* [Xam.Media.Plugin](https://www.nuget.org/packages/Xam.Plugin.Media/5.0.1) - James Montemagno - [MIT License](https://github.com/jamesmontemagno/MediaPlugin/blob/master/LICENSE)
+* [Font Awesome](https://fontawesome.com/) - Font Awesome - [SIL OFL 1.1 License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 
 ## License
 
