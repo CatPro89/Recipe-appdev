@@ -120,6 +120,9 @@
   <data name="Alert" xml:space="preserve">
     <value>Achtung</value>
   </data>
+  <data name="Backup" xml:space="preserve">
+    <value>Backup</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Löschen</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="No" xml:space="preserve">
     <value>Nein</value>
   </data>
+  <data name="NoBackupFound" xml:space="preserve">
+    <value>Kein Backup gefunden.</value>
+  </data>
   <data name="NoPhotoPicked" xml:space="preserve">
     <value>Es wurde kein Foto ausgewählt.</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="PickPhotoNotSupported" xml:space="preserve">
     <value>Dein Gerät erlaubt es aktuell nicht Fotos auszuwählen.</value>
+  </data>
+  <data name="QuestionDeleteAndRestore" xml:space="preserve">
+    <value>Bei der Wiederherstellung werden alle vorhandenen Rezepte gelöscht. Möchtest du trotzdem fortfahren?</value>
   </data>
   <data name="QuestionSaveChanges" xml:space="preserve">
     <value>Möchtest du deine Änderungen speichern?</value>
@@ -182,6 +191,9 @@
   </data>
   <data name="Recipe_Servings" xml:space="preserve">
     <value>Portion(en)</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellung</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Suche Rezept(e)</value>

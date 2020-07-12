@@ -8,11 +8,6 @@ namespace RecipeApp.Models
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class Ingredient : BaseModel
     {
-        private int order;
-        private string name;
-        private double? quantity;
-        private Unit unit;
-
         [Key]
         public int Id { get; set; }
 
@@ -32,21 +27,7 @@ namespace RecipeApp.Models
             }
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (name != value)
-                {
-                    name = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
+        private int order;
 
         public double? Quantity
         {
@@ -64,6 +45,8 @@ namespace RecipeApp.Models
             }
         }
 
+        private double? quantity;
+
         public Unit Unit
         {
             get
@@ -80,6 +63,26 @@ namespace RecipeApp.Models
             }
         }
 
+        private Unit unit;
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private string name;
+
         public int RecipeId { get; set; }
 
         public Recipe Recipe { get; set; }
@@ -91,9 +94,9 @@ namespace RecipeApp.Models
             return obj is Ingredient ingredient &&
                    Id == ingredient.Id &&
                    Order == ingredient.Order &&
-                   Name == ingredient.Name &&
                    Quantity == ingredient.Quantity &&
                    Unit == ingredient.Unit &&
+                   Name == ingredient.Name &&
                    RecipeId == ingredient.RecipeId &&
                    EqualityComparer<Recipe>.Default.Equals(Recipe, ingredient.Recipe);
         }

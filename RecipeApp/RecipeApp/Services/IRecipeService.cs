@@ -6,12 +6,16 @@ namespace RecipeApp.Services
 {
     public interface IRecipeService
     {
-        Task DeleteRecipeAsync(Recipe recipe);
+        Task<List<Recipe>> GetRecipesAsync(string searchText = null, bool includeRelatedData = false);
+
+        Task SaveRecipeAsync(Recipe recipe);
+
+        Task SaveRecipesAsync(IEnumerable<Recipe> recipes);
 
         Task<Recipe> GetRecipeAsync(int id);
 
-        Task<List<Recipe>> GetRecipesAsync(string searchText = null);
+        Task DeleteRecipeAsync(Recipe recipe);
 
-        Task SaveRecipeAsync(Recipe recipe);
+        Task DeleteAllRecipesAsync();
     }
 }

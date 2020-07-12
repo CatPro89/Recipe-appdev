@@ -70,6 +70,15 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backup.
+        /// </summary>
+        internal static string Backup {
+            get {
+                return ResourceManager.GetString("Backup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
@@ -151,6 +160,15 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No backup found..
+        /// </summary>
+        internal static string NoBackupFound {
+            get {
+                return ResourceManager.GetString("NoBackupFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No photo was picked..
         /// </summary>
         internal static string NoPhotoPicked {
@@ -183,6 +201,15 @@ namespace RecipeApp.Resx {
         internal static string PickPhotoNotSupported {
             get {
                 return ResourceManager.GetString("PickPhotoNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When restoring, all exisiting recipes will be deleted. Do you want to continue anyway?.
+        /// </summary>
+        internal static string QuestionDeleteAndRestore {
+            get {
+                return ResourceManager.GetString("QuestionDeleteAndRestore", resourceCulture);
             }
         }
         
@@ -255,6 +282,15 @@ namespace RecipeApp.Resx {
         internal static string RecipeDetails {
             get {
                 return ResourceManager.GetString("RecipeDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        internal static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
             }
         }
         

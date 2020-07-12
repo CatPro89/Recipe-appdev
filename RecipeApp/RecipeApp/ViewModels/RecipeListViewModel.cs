@@ -1,10 +1,15 @@
-﻿using RecipeApp.Models;
+﻿using RecipeApp.Helpers;
+using RecipeApp.Models;
+using RecipeApp.Resx;
 using RecipeApp.Services;
 using RecipeApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -14,12 +19,15 @@ namespace RecipeApp.ViewModels
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class RecipeListViewModel : BaseModel
     {
-        public RecipeListViewModel(IRecipeService recipeService, INavigation navigation)
+        public RecipeListViewModel(IRecipeService recipeService, INavigation navigation, IAlertService alertService)
         {
             RecipeService = recipeService;
             Navigation = navigation;
+            AlertService = alertService;
             RecipeRowViewModels = new ObservableCollection<RecipeRowViewModel>();
             SearchCommand = new Command(Search);
+            BackupCommand = new Command(Backup);
+            RestoreCommand = new Command(Restore);
             AddRecipeCommand = new Command(AddRecipe);
             ShowRecipeDetailsCommand = new Command<int>(ShowRecipeDetails);
         }
@@ -85,6 +93,8 @@ namespace RecipeApp.ViewModels
 
         private INavigation Navigation { get; set; }
 
+        private IAlertService AlertService { get; set; }
+
         public async Task Load()
         {
             IsLoading = true;
@@ -108,6 +118,63 @@ namespace RecipeApp.ViewModels
         private async void Search()
         {
             await Load();
+        }
+
+        public ICommand BackupCommand { get; private set; }
+
+        private async void Backup()
+        {
+            var recipes = await RecipeService.GetRecipesAsync(null, true);
+
+            var jsonRecipes = recipes.Select(JsonMapper.Build);
+
+            var json = JsonSerializer.Serialize(jsonRecipes, GetJsonSerializerOptions());
+
+            File.WriteAllText(GetBackupPath(), json);
+        }
+
+        public ICommand RestoreCommand { get; private set; }
+
+        private async void Restore()
+        {
+            var restore = await AlertService.DisplayQuestionAlert(nameof(AppResources.QuestionDeleteAndRestore));
+            if (!restore)
+                return;
+
+            await RecipeService.DeleteAllRecipesAsync();
+
+            var backupPath = GetBackupPath();
+
+            if (!File.Exists(backupPath))
+            {
+                await AlertService.DisplayErrorAlert(nameof(AppResources.NoBackupFound));
+
+                return;
+            }
+
+            var json = File.ReadAllText(backupPath);
+
+            var jsonRecipes = JsonSerializer.Deserialize<IEnumerable<JsonRecipe>>(json, GetJsonSerializerOptions());
+
+            var recipes = jsonRecipes.Select(JsonMapper.Parse);
+
+            await RecipeService.SaveRecipesAsync(recipes);
+
+            await Load();
+        }
+
+        private JsonSerializerOptions GetJsonSerializerOptions()
+        {
+            var jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            jsonSerializerOptions.Converters.Add(new JsonTimeSpanConverter());
+
+            return jsonSerializerOptions;
+        }
+
+        private string GetBackupPath()
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), Constants.BackupFileName);
         }
 
         public ICommand AddRecipeCommand { get; private set; }

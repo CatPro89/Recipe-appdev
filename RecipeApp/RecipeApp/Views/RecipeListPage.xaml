@@ -15,6 +15,11 @@
                    SearchCommand="{Binding SearchCommand}" />
     </NavigationPage.TitleView>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resources:AppResources.Backup}" Command="{Binding BackupCommand}" Order="Secondary" Priority="0" />
+        <ToolbarItem Text="{x:Static resources:AppResources.Restore}" Command="{Binding RestoreCommand}" Order="Secondary" Priority="1" />
+    </ContentPage.ToolbarItems>
+
     <RelativeLayout Margin="10,10,10,10">
         <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">

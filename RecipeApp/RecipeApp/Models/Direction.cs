@@ -7,9 +7,6 @@ namespace RecipeApp.Models
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
     public class Direction : BaseModel
     {
-        private int order;
-        private string description;
-
         [Key]
         public int Id { get; set; }
 
@@ -29,6 +26,8 @@ namespace RecipeApp.Models
             }
         }
 
+        private int order;
+
         public string Description
         {
             get
@@ -44,6 +43,8 @@ namespace RecipeApp.Models
                 }
             }
         }
+
+        private string description;
 
         public int RecipeId { get; set; }
 
