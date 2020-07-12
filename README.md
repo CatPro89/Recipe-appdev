@@ -11,16 +11,46 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 ## Features
 
 * Add all your favourite recipes
-* Edit your recipes
+
+![New recipe overview (German)](Screenshots/RecipeAddOverviewGerman.png)
+![New recipe time picker (German)](Screenshots/RecipeAddEditPickTimeGerman.png)
+![New recipe ingredients (German)](Screenshots/RecipeAddIngredientsGerman.png)
+![New recipe unit picker (German)](Screenshots/RecipeAddEditIngredientsPickUnit.png)
+![New recipe directions (German)](Screenshots/RecipeAddDirectionsGerman.png)
+
 * Search for a specific recipe in your list of recipes
-* Let the app calculate ingredients for different numbers of servings
-* Use in English or German
 
-## Screenshots
+![Recipe list with search bar (German)](Screenshots/RecipeListGerman.png)
+![Search recipe (German)](Screenshots/SearchRecipeGerman.png)
 
-...
+* View recipe details and let the app calculate ingredients for different numbers of servings
 
-## Getting started
+![Recipe details overview (German)](Screenshots/RecipeDetailsOverviewGerman.png)
+![Recipe details ingredients servings 2 (German)](Screenshots/RecipeDetailsIngredientsGerman.png)
+![Recipe details ingredients servings 1 (German)](Screenshots/RecipeDetailsIngredientsServings1German.png)
+![Recipe details directions (German)](Screenshots/RecipeDetailsDirectionsGerman.png)
+![Recipe details directions after scrolling (German)](Screenshots/RecipeDetailsDirections2German.png)
+
+* Edit your recipes
+
+![Existing recipe overview (German)](Screenshots/RecipeEditOverviewGerman.png)
+![Existing recipe ingredients (German)](Screenshots/RecipeEditIngredientsGerman.png)
+![Existing recipe directions (German)](Screenshots/RecipeEditDirectionsGerman.png)
+
+* Delete recipes
+
+![Delete recipe (German)](Screenshots/RecipeDeleteGerman.png)
+
+* Use in English or German (depending on your devices settings)
+
+![New recipe overview (English)](Screenshots/RecipeAddOverviewEnglish.png)
+![New recipe overview (German)](Screenshots/RecipeAddOverviewGerman.png)
+
+* Backup and restore your recipes
+
+![Backup and restore recipes (German)](Screenshots/RecipeListBackupRestoreGerman.png)
+
+## Try it yourself
 
 ### Clone
 
