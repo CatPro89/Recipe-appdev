@@ -10,7 +10,7 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 
 ## Features
 
-* Add all your favourite recipes
+### Add all your favourite recipes
 
 ![New recipe overview (German)](Screenshots/RecipeAddOverviewGerman.png)
 ![New recipe time picker (German)](Screenshots/RecipeAddEditPickTimeGerman.png)
@@ -20,12 +20,12 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 
 ![New recipe directions (German)](Screenshots/RecipeAddDirectionsGerman.png)
 
-* Search for a specific recipe in your list of recipes
+### Search for a specific recipe in your list of recipes
 
 ![Recipe list with search bar (German)](Screenshots/RecipeListGerman.png)
 ![Search recipe (German)](Screenshots/SearchRecipeGerman.png)
 
-* View recipe details and let the app calculate ingredients for different numbers of servings
+### View recipe details and let the app calculate ingredients for different numbers of servings
 
 ![Recipe details overview (German)](Screenshots/RecipeDetailsOverviewGerman.png)
 
@@ -35,24 +35,24 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 ![Recipe details directions (German)](Screenshots/RecipeDetailsDirectionsGerman.png)
 ![Recipe details directions after scrolling (German)](Screenshots/RecipeDetailsDirections2German.png)
 
-* Edit your recipes
+### Edit your recipes
 
 ![Existing recipe overview (German)](Screenshots/RecipeEditOverviewGerman.png)
 ![Existing recipe ingredients (German)](Screenshots/RecipeEditIngredientsGerman.png)
 ![Existing recipe directions (German)](Screenshots/RecipeEditDirectionsGerman.png)
 
-* Delete recipes
+### Delete recipes
 
 ![Delete recipe (German)](Screenshots/RecipeDeleteGerman.png)
 
-* Use in English or German (depending on your devices settings)
+### Backup and restore your recipes
+
+![Backup and restore recipes (German)](Screenshots/RecipeListBackupRestoreGerman.png)
+
+### Use in English or German (depending on your devices settings)
 
 ![New recipe overview (English)](Screenshots/RecipeAddOverviewEnglish.png)
 ![New recipe overview (German)](Screenshots/RecipeAddOverviewGerman.png)
-
-* Backup and restore your recipes
-
-![Backup and restore recipes (German)](Screenshots/RecipeListBackupRestoreGerman.png)
 
 ## Try it yourself
 
