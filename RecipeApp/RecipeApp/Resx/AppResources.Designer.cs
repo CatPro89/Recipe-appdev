@@ -79,6 +79,15 @@ namespace RecipeApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your recipe backup was successful..
+        /// </summary>
+        internal static string BackupSuccessful {
+            get {
+                return ResourceManager.GetString("BackupSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
@@ -291,6 +300,15 @@ namespace RecipeApp.Resx {
         internal static string Restore {
             get {
                 return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your recipe restore was successful..
+        /// </summary>
+        internal static string RestoreSuccessful {
+            get {
+                return ResourceManager.GetString("RestoreSuccessful", resourceCulture);
             }
         }
         

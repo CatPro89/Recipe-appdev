@@ -123,6 +123,9 @@
   <data name="Backup" xml:space="preserve">
     <value>Backup</value>
   </data>
+  <data name="BackupSuccessful" xml:space="preserve">
+    <value>Your recipe backup was successful.</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Restore</value>
+  </data>
+  <data name="RestoreSuccessful" xml:space="preserve">
+    <value>Your recipe restore was successful.</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search recipe(s)</value>

@@ -131,6 +131,8 @@ namespace RecipeApp.ViewModels
             var json = JsonSerializer.Serialize(jsonRecipes, GetJsonSerializerOptions());
 
             File.WriteAllText(GetBackupPath(), json);
+
+            AlertService.DisplayToast(nameof(AppResources.BackupSuccessful));
         }
 
         public ICommand RestoreCommand { get; private set; }
@@ -161,6 +163,8 @@ namespace RecipeApp.ViewModels
             await RecipeService.SaveRecipesAsync(recipes);
 
             await Load();
+
+            AlertService.DisplayToast(nameof(AppResources.RestoreSuccessful));
         }
 
         private JsonSerializerOptions GetJsonSerializerOptions()

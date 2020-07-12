@@ -7,5 +7,7 @@ namespace RecipeApp.Services
         Task<bool> DisplayQuestionAlert(string questionResource);
 
         Task DisplayErrorAlert(string errorMessageResource);
+
+        void DisplayToast(string messageResource);
     }
 }

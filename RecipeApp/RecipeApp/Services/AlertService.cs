@@ -28,5 +28,10 @@ namespace RecipeApp.Services
                     ResourceManager.GetString(errorMessageResource),
                     ResourceManager.GetString(nameof(AppResources.Ok)));
         }
+
+        public void DisplayToast(string messageResource)
+        {
+            DependencyService.Get<IToast>().Show(ResourceManager.GetString(messageResource));
+        }
     }
 }
