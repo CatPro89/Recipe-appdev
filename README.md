@@ -47,7 +47,7 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 
 ### Backup and restore your recipes
 
-![Backup and restore recipes (German)](Screenshots/RecipeListBackupRestoreGerman.png)
+![Backup and restore recipes (German)](Screenshots/BackupRecipesGerman.gif)
 
 ### Use in English or German (depending on your devices settings)
 
