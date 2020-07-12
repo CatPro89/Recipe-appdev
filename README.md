@@ -23,7 +23,7 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 ### Search for a specific recipe in your list of recipes
 
 ![Recipe list with search bar (German)](Screenshots/RecipeListGerman.png)
-![Search recipe (German)](Screenshots/SearchRecipeGerman.png)
+![Search recipe (German)](Screenshots/SearchRecipeGerman.gif)
 
 ### View recipe details and let the app calculate ingredients for different numbers of servings
 
@@ -47,7 +47,7 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 
 ### Backup and restore your recipes
 
-![Backup and restore recipes (German)](Screenshots/BackupRecipesGerman.gif)
+![Backup recipes (German)](Screenshots/BackupRecipesGerman.gif)
 
 ### Use in English or German (depending on your devices settings)
 
