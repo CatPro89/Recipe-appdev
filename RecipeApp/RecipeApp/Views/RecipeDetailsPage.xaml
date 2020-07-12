@@ -20,68 +20,60 @@
     <ContentPage Title="{x:Static resources:AppResources.Overview}">
         <ScrollView>
             <StackLayout Margin="10,10,10,10">
-                <Image Source="{Binding ImageSource}" Margin="0,0,0,10" />
-                <Label Text="{Binding Recipe.Name}" FontSize="Large" />
+                <Image Source="{Binding ImageSource}" />
+                <Label Text="{Binding Recipe.Name}" FontSize="Title" />
                 <Grid ColumnDefinitions="0.1*, 0.4*, 0.1*, 0.4*" RowDefinitions="0.5*, 0.5*">
-                    <Label Grid.Row="0" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconPreparationTime}" />
-                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding PreparationTime}" />
-                    <Label Grid.Row="0" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconRestTime}" />
-                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding RestTime}" />
-                    <Label Grid.Row="1" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconBakingCookingTime}" />
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding BakingCookingTime}" />
-                    <Label Grid.Row="1" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconOverallTime}" />
-                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding OverallTime}" />
+                    <Label Grid.Row="0" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconPreparationTime}" FontSize="Medium" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding PreparationTime}" FontSize="Medium" />
+                    <Label Grid.Row="0" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconRestTime}" FontSize="Medium" />
+                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding RestTime}" FontSize="Medium" />
+                    <Label Grid.Row="1" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconBakingCookingTime}" FontSize="Medium" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding BakingCookingTime}" FontSize="Medium" />
+                    <Label Grid.Row="1" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconOverallTime}" FontSize="Medium" />
+                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding OverallTime}" FontSize="Medium" />
                 </Grid>
             </StackLayout>
         </ScrollView>
     </ContentPage>
 
     <ContentPage Title="{x:Static resources:AppResources.Ingredients}">
-        <RelativeLayout Margin="10,10,10,10">
-            <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" VerticalOptions="Center" />
-                        <Label Text="{x:Static resources:AppResources.Recipe_Servings}" VerticalOptions="Center" />
-                        <Stepper x:Name="stepper" Value="{Binding Recipe.Servings}" ValueChanged="OnServingsChanged" Minimum="1" />
-                    </StackLayout>
-                    <ListView ItemsSource="{Binding IngredientDetailsViewModels}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid ColumnDefinitions="0.15*, 0.15*, 0.7*">
-                                        <Label Grid.Column="0" Text="{Binding Ingredient.Quantity}" />
-                                        <Label Grid.Column="1" Text="{Binding UnitDisplayName}" />
-                                        <Label Grid.Column="2" Text="{Binding Ingredient.Name}" />
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </ContentView>
-        </RelativeLayout>
+        <StackLayout Margin="10,10,10,10" Padding="0,0,5,5">
+            <StackLayout Orientation="Horizontal">
+                <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" FontSize="Medium" VerticalOptions="Center" />
+                <Label Text="{x:Static resources:AppResources.Recipe_Servings}" FontSize="Medium" VerticalOptions="Center" />
+                <Stepper x:Name="stepper" Value="{Binding Recipe.Servings}" ValueChanged="OnServingsChanged" Minimum="1" />
+            </StackLayout>
+            <ListView ItemsSource="{Binding IngredientDetailsViewModels}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="0.15*, 0.15*, 0.7*">
+                                <Label Grid.Column="0" Text="{Binding Ingredient.Quantity}" FontSize="Medium" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="{Binding UnitDisplayName}" FontSize="Medium" VerticalOptions="Center" />
+                                <Label Grid.Column="2" Text="{Binding Ingredient.Name}" FontSize="Medium" VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage>
 
     <ContentPage Title="{x:Static resources:AppResources.Directions}">
-        <RelativeLayout Margin="10,10,10,10">
-            <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <ListView ItemsSource="{Binding DirectionDetailsViewModels}" HasUnevenRows="true">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid ColumnDefinitions="Auto, *">
-                                    <Label Grid.Column="0" Text="{Binding Direction.Order}" />
-                                    <Label Grid.Column="1" Text="{Binding Direction.Description}" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ContentView>
-        </RelativeLayout>
+        <ListView ItemsSource="{Binding DirectionDetailsViewModels}" HasUnevenRows="true" Margin="10,10,10,10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="Auto, *">
+                            <Frame Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="5" Padding="0" BackgroundColor="DodgerBlue">
+                                <Label Text="{Binding Direction.Order}" TextColor="White" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Frame>
+                            <Label Grid.Column="1" Text="{Binding Direction.Description}" FontSize="Medium" Margin="5" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage>
 
 </TabbedPage>

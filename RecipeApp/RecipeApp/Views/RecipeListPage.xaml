@@ -20,7 +20,7 @@
         <ToolbarItem Text="{x:Static resources:AppResources.Restore}" Command="{Binding RestoreCommand}" Order="Secondary" Priority="1" />
     </ContentPage.ToolbarItems>
 
-    <RelativeLayout Margin="10,10,10,10">
+    <RelativeLayout Margin="0,0,0,0">
         <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
             <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -29,13 +29,12 @@
                           HasUnevenRows="False"
                           ItemTapped="ListView_ItemTapped"
                           SelectionMode="None"
-                          SeparatorVisibility="None"
                           RowHeight="120"
                           IsVisible="{Binding IsLoaded}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+                                <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
                                     <Image Source="{Binding ImageSource}" />
                                     <StackLayout HorizontalOptions="FillAndExpand">
                                         <Label Text="{Binding Recipe.Name}" FontSize="Large" />
