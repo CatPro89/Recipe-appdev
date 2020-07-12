@@ -14,8 +14,10 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 
 ![New recipe overview (German)](Screenshots/RecipeAddOverviewGerman.png)
 ![New recipe time picker (German)](Screenshots/RecipeAddEditPickTimeGerman.png)
+
 ![New recipe ingredients (German)](Screenshots/RecipeAddIngredientsGerman.png)
 ![New recipe unit picker (German)](Screenshots/RecipeAddEditIngredientsPickUnit.png)
+
 ![New recipe directions (German)](Screenshots/RecipeAddDirectionsGerman.png)
 
 * Search for a specific recipe in your list of recipes
@@ -26,8 +28,10 @@ The idea of this project was to experiment with Xamarin.Forms. At the same time 
 * View recipe details and let the app calculate ingredients for different numbers of servings
 
 ![Recipe details overview (German)](Screenshots/RecipeDetailsOverviewGerman.png)
+
 ![Recipe details ingredients servings 2 (German)](Screenshots/RecipeDetailsIngredientsGerman.png)
 ![Recipe details ingredients servings 1 (German)](Screenshots/RecipeDetailsIngredientsServings1German.png)
+
 ![Recipe details directions (German)](Screenshots/RecipeDetailsDirectionsGerman.png)
 ![Recipe details directions after scrolling (German)](Screenshots/RecipeDetailsDirections2German.png)
 
