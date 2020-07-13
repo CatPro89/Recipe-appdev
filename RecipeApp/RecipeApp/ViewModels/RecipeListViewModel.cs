@@ -9,7 +9,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -170,6 +172,7 @@ namespace RecipeApp.ViewModels
         private JsonSerializerOptions GetJsonSerializerOptions()
         {
             var jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
             jsonSerializerOptions.WriteIndented = true;
             jsonSerializerOptions.Converters.Add(new JsonTimeSpanConverter());
 
