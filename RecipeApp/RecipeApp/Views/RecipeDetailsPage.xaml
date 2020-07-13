@@ -39,18 +39,18 @@
     <ContentPage Title="{x:Static resources:AppResources.Ingredients}">
         <StackLayout Margin="10,10,10,10" Padding="0,0,5,5">
             <StackLayout Orientation="Horizontal">
-                <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" FontSize="Medium" VerticalOptions="Center" />
-                <Label Text="{x:Static resources:AppResources.Recipe_Servings}" FontSize="Medium" VerticalOptions="Center" />
+                <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" VerticalOptions="Center" />
+                <Label Text="{x:Static resources:AppResources.Recipe_Servings}" VerticalOptions="Center" />
                 <Stepper x:Name="stepper" Value="{Binding Recipe.Servings}" ValueChanged="OnServingsChanged" Minimum="1" />
             </StackLayout>
             <ListView ItemsSource="{Binding IngredientDetailsViewModels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid ColumnDefinitions="0.15*, 0.15*, 0.7*">
-                                <Label Grid.Column="0" Text="{Binding Ingredient.Quantity}" FontSize="Medium" VerticalOptions="Center" />
-                                <Label Grid.Column="1" Text="{Binding UnitDisplayName}" FontSize="Medium" VerticalOptions="Center" />
-                                <Label Grid.Column="2" Text="{Binding Ingredient.Name}" FontSize="Medium" VerticalOptions="Center" />
+                            <Grid ColumnDefinitions="0.15*, 0.25*, 0.6*">
+                                <Label Grid.Column="0" Text="{Binding Ingredient.Quantity}" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="{Binding UnitDisplayName}" VerticalOptions="Center" />
+                                <Label Grid.Column="2" Text="{Binding Ingredient.Name}" VerticalOptions="Center" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -68,7 +68,7 @@
                             <Frame Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="5" Padding="0" BackgroundColor="DodgerBlue">
                                 <Label Text="{Binding Direction.Order}" TextColor="White" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                             </Frame>
-                            <Label Grid.Column="1" Text="{Binding Direction.Description}" FontSize="Medium" Margin="5" />
+                            <Label Grid.Column="1" Text="{Binding Direction.Description}" Margin="5" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

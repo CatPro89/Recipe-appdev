@@ -49,31 +49,31 @@
                          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
                 <StackLayout Margin="10,10,10,10" Padding="0,0,5,5">
                     <StackLayout Orientation="Horizontal">
-                        <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" FontSize="Medium" VerticalOptions="Center" />
-                        <Label Text="{x:Static resources:AppResources.Recipe_Servings}" FontSize="Medium" VerticalOptions="Center" />
+                        <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" VerticalOptions="Center" />
+                        <Label Text="{x:Static resources:AppResources.Recipe_Servings}" VerticalOptions="Center" />
                         <Stepper x:Name="stepper" Value="{Binding Recipe.Servings}" ValueChanged="OnServingsChanged" Minimum="1" />
                     </StackLayout>
                     <ListView ItemsSource="{Binding IngredientEditViewModels}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid ColumnDefinitions="0.25*, 0.25*, 0.5*, Auto, Auto, Auto">
+                                    <Grid ColumnDefinitions="0.25*, 0.3*, 0.45*, Auto, Auto, Auto">
                                         <Entry Grid.Column="0"
                                                Placeholder="{x:Static resources:AppResources.Ingredient_Quantity}"
                                                Text="{Binding Ingredient.Quantity}"
-                                               FontSize="Medium"
-                                               Keyboard="Numeric" />
+                                               Keyboard="Numeric"
+                                               FontSize="Small" />
                                         <Picker Grid.Column="1"
                                                 Title="{x:Static resources:AppResources.Ingredient_Unit}"
                                                 ItemsSource="{Binding UnitViewModels}"
                                                 ItemDisplayBinding="{Binding DisplayName}"
                                                 SelectedItem="{Binding SelectedUnitViewModel}"
                                                 SelectedIndex="{Binding SelectedIndex}"
-                                                FontSize="Medium" />
+                                                FontSize="Small" />
                                         <Entry Grid.Column="2"
                                                Placeholder="{x:Static resources:AppResources.Ingredient_Name}"
                                                Text="{Binding Ingredient.Name}"
-                                               FontSize="Medium" />
+                                               FontSize="Small" />
                                         <ImageButton Grid.Column="3"
                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=DecreaseIngredientOrderCommand}"
                                                  CommandParameter="{Binding .}"
@@ -126,7 +126,7 @@
                                     <Frame Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="5" Padding="0" BackgroundColor="DodgerBlue">
                                         <Label Text="{Binding Direction.Order}" TextColor="White" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                                     </Frame>
-                                    <Editor Grid.Column="1" Text="{Binding Direction.Description}" FontSize="Medium" AutoSize="TextChanges" />
+                                    <Editor Grid.Column="1" Text="{Binding Direction.Description}" FontSize="Small" AutoSize="TextChanges" />
                                     <ImageButton Grid.Column="2"
                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeEditViewModel}}, Path=DecreaseDirectionOrderCommand}"
                                                  CommandParameter="{Binding .}"
