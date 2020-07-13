@@ -60,7 +60,7 @@
                                     <Grid ColumnDefinitions="0.25*, 0.3*, 0.45*, Auto, Auto, Auto">
                                         <Entry Grid.Column="0"
                                                Placeholder="{x:Static resources:AppResources.Ingredient_Quantity}"
-                                               Text="{Binding Ingredient.Quantity}"
+                                               Text="{Binding StringQuantity}"
                                                Keyboard="Numeric"
                                                FontSize="Small" />
                                         <Picker Grid.Column="1"

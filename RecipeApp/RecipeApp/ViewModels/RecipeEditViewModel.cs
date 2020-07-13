@@ -4,6 +4,7 @@ using RecipeApp.Helpers;
 using RecipeApp.Models;
 using RecipeApp.Resx;
 using RecipeApp.Services;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -210,7 +211,9 @@ namespace RecipeApp.ViewModels
 
             foreach (var ingredientEditViewModel in IngredientEditViewModels)
             {
-                ingredientEditViewModel.Ingredient.Quantity = ingredientEditViewModel.Ingredient.Quantity / e.OldValue * e.NewValue;
+                var oldValue = Convert.ToDecimal(e.OldValue);
+                var newValue = Convert.ToDecimal(e.NewValue);
+                ingredientEditViewModel.Ingredient.Quantity = ingredientEditViewModel.Ingredient.Quantity / oldValue * newValue;
             }
         }
 

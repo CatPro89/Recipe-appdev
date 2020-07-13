@@ -29,7 +29,7 @@ namespace RecipeApp.Models
 
         private int order;
 
-        public double? Quantity
+        public decimal? Quantity
         {
             get
             {
@@ -45,7 +45,7 @@ namespace RecipeApp.Models
             }
         }
 
-        private double? quantity;
+        private decimal? quantity;
 
         public Unit Unit
         {

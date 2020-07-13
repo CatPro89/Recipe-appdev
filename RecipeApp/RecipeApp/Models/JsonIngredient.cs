@@ -8,7 +8,7 @@
 
         public string Name { get; set; }
 
-        public double? Quantity { get; set; }
+        public decimal? Quantity { get; set; }
 
         public Unit Unit { get; set; }
     }

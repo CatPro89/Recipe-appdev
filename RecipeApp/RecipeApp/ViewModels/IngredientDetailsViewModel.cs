@@ -1,6 +1,7 @@
 ﻿using RecipeApp.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
@@ -34,6 +35,24 @@ namespace RecipeApp.ViewModels
         }
 
         private Ingredient ingredient;
+
+        /// <summary>
+        /// When binding to a property of type decimal?, all values are displayed with at least one decimal place.
+        /// Integer only values should be displayed without decimal places.
+        /// </summary>
+        public string StringQuantity
+        {
+            get
+            {
+                var nullableQuantity = Ingredient?.Quantity;
+                if (nullableQuantity == null)
+                    return null;
+
+                var quantity = (decimal)nullableQuantity;
+
+                return quantity.ToString("0.##", CultureInfo.CurrentCulture);
+            }
+        }
 
         public string UnitDisplayName
         {
