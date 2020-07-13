@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RecipeApp.Models;
-using System;
 using System.IO;
+using Xamarin.Forms;
 
 namespace RecipeApp.Services
 {
@@ -11,7 +11,8 @@ namespace RecipeApp.Services
         {
             base.OnConfiguring(optionsBuilder);
 
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), Constants.DatabaseFileName);
+            var externalStoragePath = DependencyService.Get<IExternalStorage>().GetPath();
+            var databasePath = Path.Combine(externalStoragePath, Constants.DatabaseFileName);
 
             optionsBuilder.UseSqlite($"Filename={databasePath}");
         }

@@ -181,7 +181,8 @@ namespace RecipeApp.ViewModels
 
         private string GetBackupPath()
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), Constants.BackupFileName);
+            var externalStoragePath = DependencyService.Get<IExternalStorage>().GetPath();
+            return Path.Combine(externalStoragePath, Constants.BackupFileName);
         }
 
         public ICommand AddRecipeCommand { get; private set; }

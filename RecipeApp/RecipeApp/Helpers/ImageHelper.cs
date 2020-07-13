@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeApp.Services;
+using System;
 using System.IO;
 using Xamarin.Forms;
 
@@ -87,7 +88,7 @@ namespace RecipeApp.Helpers
 
         private static string GetImagePath()
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Pictures");
+            return DependencyService.Get<IExternalStorage>().GetPicturesPath();
         }
 
         private static void AssertDirectoryExists(string imagePath)
