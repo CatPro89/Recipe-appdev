@@ -68,7 +68,7 @@ git clone https://github.com/hocnat/RecipeApp.git
 
 Open Solution in Visual Studio.
 
-Build | Rebuild Solution
+Right click on solution | Rebuild Solution
 
 ### Deploy
 
@@ -76,11 +76,27 @@ Build | Rebuild Solution
 
 Right click on RecipeApp.Android | Set as Startup Project
 
-Build | Deploy Solution
+Right click on solution | Deploy Solution
 
-### Start
+### Run
 
-Open app `Recipes`
+Open app `Recipes`.
+
+### Build .apk file
+
+Set Configuration to `Release` | Right click on solution | Archive All...
+
+### Sign .apk file
+
+Wait until Archive Manager finished building .apk file.
+
+Distribute ... | Ad hoc | Choose existing or create new Signing Identity | Save As
+
+### Copy and install
+
+Connect device via USB | Copy signed .apk file (e.g. to Download folder) | Click on .apk file | Install
+
+> If necessary, allow installation from unknown sources.
 
 ## Built with
 
