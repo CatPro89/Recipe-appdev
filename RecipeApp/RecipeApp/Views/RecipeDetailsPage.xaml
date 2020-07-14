@@ -65,7 +65,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid ColumnDefinitions="Auto, *">
-                            <Frame Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="5" Padding="0" BackgroundColor="DodgerBlue">
+                            <Frame Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="5" Padding="0" BackgroundColor="Accent">
                                 <Label Text="{Binding Direction.Order}" TextColor="White" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                             </Frame>
                             <Label Grid.Column="1" Text="{Binding Direction.Description}" Margin="5" />
