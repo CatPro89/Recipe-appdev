@@ -152,7 +152,8 @@ namespace RecipeApp.ViewModels
 
             var mediaOptions = new PickMediaOptions
             {
-                PhotoSize = PhotoSize.Medium
+                PhotoSize = PhotoSize.MaxWidthHeight,
+                MaxWidthHeight = 1080
             };
 
             var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);

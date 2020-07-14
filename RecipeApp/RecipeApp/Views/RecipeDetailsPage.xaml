@@ -20,9 +20,9 @@
     <ContentPage Title="{x:Static resources:AppResources.Overview}">
         <ScrollView>
             <StackLayout Margin="10,10,10,10">
-                <Image Source="{Binding ImageSource}" />
+                <Image Source="{Binding ImageSource}" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" />
                 <Label Text="{Binding Recipe.Name}" FontSize="Title" />
-                <Grid ColumnDefinitions="0.1*, 0.4*, 0.1*, 0.4*" RowDefinitions="0.5*, 0.5*">
+                <Grid ColumnDefinitions="0.1*, 0.4*, 0.1*, 0.4*" RowDefinitions="0.5*, 0.5*" VerticalOptions="StartAndExpand">
                     <Label Grid.Row="0" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconPreparationTime}" FontSize="Medium" />
                     <Label Grid.Row="0" Grid.Column="1" Text="{Binding PreparationTime}" FontSize="Medium" />
                     <Label Grid.Row="0" Grid.Column="2" FontFamily="FA-S" Text="{StaticResource IconRestTime}" FontSize="Medium" />

@@ -29,15 +29,15 @@
                           HasUnevenRows="False"
                           ItemTapped="ListView_ItemTapped"
                           SelectionMode="None"
-                          RowHeight="120"
+                          RowHeight="100"
                           IsVisible="{Binding IsLoaded}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
+                                <StackLayout Orientation="Horizontal" Margin="10,10,10,10" VerticalOptions="FillAndExpand">
                                     <Image Source="{Binding ImageSource}" />
                                     <StackLayout HorizontalOptions="FillAndExpand">
-                                        <Label Text="{Binding Recipe.Name}" FontSize="Large" />
+                                        <Label Text="{Binding Recipe.Name}" FontSize="Medium" />
                                         <Grid ColumnDefinitions="0.1*, 0.4*, 0.1*, 0.4*" RowDefinitions="0.5*, 0.5*">
                                             <Label Grid.Row="0" Grid.Column="0" FontFamily="FA-S" Text="{StaticResource IconPreparationTime}" />
                                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding PreparationTime}" />
