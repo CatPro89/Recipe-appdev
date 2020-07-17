@@ -17,7 +17,7 @@
         <ToolbarItem Text="{x:Static resources:AppResources.Delete}" Command="{Binding DeleteRecipeCommand}" Order="Secondary" Priority="0" />
     </TabbedPage.ToolbarItems>
 
-    <ContentPage Title="{x:Static resources:AppResources.Overview}">
+    <ContentPage Title="{x:Static resources:AppResources.BasicData}">
         <ScrollView>
             <StackLayout Margin="10,10,10,10">
                 <Image Source="{Binding ImageSource}" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" />

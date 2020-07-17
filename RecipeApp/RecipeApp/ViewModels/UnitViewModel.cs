@@ -9,7 +9,7 @@ using System.Resources;
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class UnitViewModel : BaseModel
+    public class UnitViewModel : BaseViewModel
     {
         public UnitViewModel(Unit unit)
         {

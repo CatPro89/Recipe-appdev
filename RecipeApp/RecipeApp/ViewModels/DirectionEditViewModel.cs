@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class DirectionEditViewModel : BaseModel
+    public class DirectionEditViewModel : BaseViewModel
     {
         public DirectionEditViewModel(Direction direction)
         {

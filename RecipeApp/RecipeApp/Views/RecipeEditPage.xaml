@@ -23,7 +23,7 @@
         </ToolbarItem>
     </TabbedPage.ToolbarItems>
 
-    <ContentPage Title="{x:Static resources:AppResources.Overview}">
+    <ContentPage Title="{x:Static resources:AppResources.BasicData}">
         <ScrollView>
             <StackLayout Margin="10,10,10,10">
                 <Image Source="{Binding ImageSource}" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">

@@ -14,12 +14,11 @@ using Xamarin.Forms;
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class RecipeDetailsViewModel : BaseModel
+    public class RecipeDetailsViewModel : BaseViewModel
     {
-        public RecipeDetailsViewModel(IRecipeService recipeService, INavigation navigation, int recipeId)
+        public RecipeDetailsViewModel(IRecipeService recipeService, int recipeId)
         {
             RecipeService = recipeService;
-            Navigation = navigation;
             RecipeId = recipeId;
             EditRecipeCommand = new Command(EditRecipe);
             DeleteRecipeCommand = new Command(DeleteRecipe);
@@ -105,8 +104,6 @@ namespace RecipeApp.ViewModels
         private ObservableCollection<DirectionDetailsViewModel> directionDetailsViewModels;
 
         private IRecipeService RecipeService { get; set; }
-
-        private INavigation Navigation { get; set; }
 
         private int RecipeId { get; set; }
 

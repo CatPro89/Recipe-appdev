@@ -2,71 +2,96 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class IngredientEditViewModel : BaseViewModel
+    public class IngredientAddViewModel : BaseViewModel
     {
-        public IngredientEditViewModel(Ingredient ingredient)
+        public IngredientAddViewModel()
         {
-            Ingredient = ingredient;
             UnitViewModels = Enum.GetValues(typeof(Unit)).Cast<Unit>().Select(unit => new UnitViewModel(unit)).ToList();
         }
 
-        public Ingredient Ingredient
+        public int Order
         {
             get
             {
-                return ingredient;
+                return order;
             }
             set
             {
-                if (ingredient != value)
+                if (order != value)
                 {
-                    ingredient = value;
+                    order = value;
                     RaisePropertyChanged();
                 }
             }
         }
 
-        private Ingredient ingredient;
+        private int order;
 
         /// <summary>
-        /// Binding an entry to a property of type decimal? only works if the device language is set to English
+        /// Quantity is of type string because binding an entry to a property of type decimal? only works if the device language is set to English
         /// (and probably other languages with decimal separator ".").
         /// If the device language is set to German, it is not possible to enter "0,5".
         /// "0," can be entered. When entering "5", "0" and "," disappear and are replaced by "5".
         /// (Using "." as decimal separator doesn't work either.)
         /// </summary>
-        public string StringQuantity
+        public string Quantity
         {
             get
             {
-                var nullableQuantity = Ingredient?.Quantity;
-                if (nullableQuantity == null)
-                    return null;
-
-                var quantity = (decimal)nullableQuantity;
-
-                return quantity.ToString("0.##", CultureInfo.CurrentCulture);
+                return quantity;
             }
             set
             {
-                if (Ingredient == null)
-                    return;
-
-                var quantity = string.IsNullOrEmpty(value) ? null : (decimal?)decimal.Parse(value);
-
-                if (Ingredient.Quantity != quantity)
+                if (quantity != value)
                 {
-                    Ingredient.Quantity = quantity;
+                    quantity = value;
                     RaisePropertyChanged();
                 }
             }
         }
+
+        private string quantity;
+
+        public Unit Unit
+        {
+            get
+            {
+                return unit;
+            }
+            set
+            {
+                if (unit != value)
+                {
+                    unit = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private Unit unit;
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private string name;
 
         public IList<UnitViewModel> UnitViewModels
         {
@@ -90,17 +115,17 @@ namespace RecipeApp.ViewModels
         {
             get
             {
-                return UnitViewModels.Single(unitViewModel => unitViewModel.Unit == Ingredient.Unit);
+                return UnitViewModels.Single(unitViewModel => unitViewModel.Unit == Unit);
             }
             set
             {
-                Ingredient.Unit = value?.Unit ?? Unit.Undefined;
+                Unit = value?.Unit ?? Unit.Undefined;
                 RaisePropertyChanged();
             }
         }
 
         public int SelectedIndex => UnitViewModels.IndexOf(SelectedUnitViewModel);
 
-        private string DebuggerDisplay => $"{Ingredient?.Quantity} {Ingredient?.Unit} {Ingredient?.Name}";
+        private string DebuggerDisplay => $"{Quantity} {Unit} {Name}";
     }
 }

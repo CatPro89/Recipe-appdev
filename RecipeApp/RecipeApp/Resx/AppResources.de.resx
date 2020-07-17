@@ -120,11 +120,20 @@
   <data name="Alert" xml:space="preserve">
     <value>Achtung</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
   <data name="Backup" xml:space="preserve">
     <value>Backup</value>
   </data>
   <data name="BackupSuccessful" xml:space="preserve">
     <value>Dein Rezepte Backup war erfolgreich.</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>Grunddaten</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Löschen</value>
@@ -150,6 +159,9 @@
   <data name="Ingredient_Unit" xml:space="preserve">
     <value>Einheit</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>Nein</value>
   </data>
@@ -161,9 +173,6 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
-  </data>
-  <data name="Overview" xml:space="preserve">
-    <value>Übersicht</value>
   </data>
   <data name="PickPhotoNotSupported" xml:space="preserve">
     <value>Dein Gerät erlaubt es aktuell nicht Fotos auszuwählen.</value>
@@ -200,6 +209,9 @@
   </data>
   <data name="RestoreSuccessful" xml:space="preserve">
     <value>Deine Rezepte Wiederherstellung war erfolgreich.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Suche Rezept(e)</value>

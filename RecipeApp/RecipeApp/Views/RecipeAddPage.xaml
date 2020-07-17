@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:RecipeApp.Controls"
+             xmlns:resources="clr-namespace:RecipeApp.Resx"
+             xmlns:viewmodels="clr-namespace:RecipeApp.ViewModels"
+             x:Class="RecipeApp.Views.RecipeAddPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout VerticalOptions="Start">
+                <controls:StepProgressBar Steps="{Binding Steps}" CurrentStepNumber="{Binding CurrentStepNumber}" Margin="10,10,10,10" />
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray" />
+            </StackLayout>
+
+            <StackLayout Margin="10,10,10,10" VerticalOptions="CenterAndExpand" IsVisible="{Binding IsBasicDataVisible}">
+                <ScrollView>
+                    <StackLayout>
+                        <Label Text="{x:Static resources:AppResources.BasicData}" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:AppResources.Recipe_Name}" />
+                        <Entry Text="{Binding Name}" FontSize="Title" />
+                        <Image Source="{Binding ImageSource}" Aspect="AspectFit" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectImageCommand}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="{x:Static resources:AppResources.Recipe_PreparationTime}" />
+                        <TimePicker Time="{Binding PreparationTime}" Format="HH:mm" FontSize="Medium" />
+                        <Label Text="{x:Static resources:AppResources.Recipe_RestTime}" />
+                        <TimePicker Time="{Binding RestTime}" Format="HH:mm" FontSize="Medium" />
+                        <Label Text="{x:Static resources:AppResources.Recipe_BakingCookingTime}" />
+                        <TimePicker Time="{Binding BakingCookingTime}" Format="HH:mm" FontSize="Medium" />
+                        <Label Text="{x:Static resources:AppResources.Recipe_OverallTime}" />
+                        <TimePicker Time="{Binding OverallTime}" Format="HH:mm" FontSize="Medium" />
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout Margin="10,10,10,10" VerticalOptions="End" IsVisible="{Binding IsBasicDataVisible}">
+                <Grid RowDefinitions="Auto" ColumnDefinitions="*,*">
+                    <Button Grid.Row="0" Grid.Column="0" Text="{x:Static resources:AppResources.Cancel}" BackgroundColor="White" TextColor="Gray" BorderColor="LightGray" BorderWidth="1" Command="{Binding BackCommand}" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="{x:Static resources:AppResources.Next}" BackgroundColor="Accent" TextColor="White" Command="{Binding ProceedWithIngredientsCommand}" />
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Margin="10,10,10,10" VerticalOptions="CenterAndExpand" IsVisible="{Binding AreIngredientsVisible}">
+                <Label Text="{x:Static resources:AppResources.Ingredients}" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                    <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" VerticalOptions="Center" />
+                    <Label Text="{x:Static resources:AppResources.Recipe_Servings}" VerticalOptions="Center" />
+                    <Stepper x:Name="stepper" Value="{Binding Servings}" Minimum="1" />
+                </StackLayout>
+                <ListView ItemsSource="{Binding IngredientAddViewModels}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="0.25*, 0.3*, 0.45*, Auto, Auto, Auto">
+                                    <Entry Grid.Column="0"
+                                               Placeholder="{x:Static resources:AppResources.Ingredient_Quantity}"
+                                               Text="{Binding Quantity}"
+                                               Keyboard="Numeric"
+                                               FontSize="Small" />
+                                    <Picker Grid.Column="1"
+                                                Title="{x:Static resources:AppResources.Ingredient_Unit}"
+                                                ItemsSource="{Binding UnitViewModels}"
+                                                ItemDisplayBinding="{Binding DisplayName}"
+                                                SelectedItem="{Binding SelectedUnitViewModel}"
+                                                SelectedIndex="{Binding SelectedIndex}"
+                                                FontSize="Small" />
+                                    <Entry Grid.Column="2"
+                                               Placeholder="{x:Static resources:AppResources.Ingredient_Name}"
+                                               Text="{Binding Name}"
+                                               FontSize="Small" />
+                                    <ImageButton Grid.Column="3"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeAddViewModel}}, Path=DecreaseIngredientOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Size="Medium" Glyph="{StaticResource IconUp}" Color="Accent" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="4"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeAddViewModel}}, Path=IncreaseIngredientOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Size="Medium" Glyph="{StaticResource IconDown}" Color="Accent" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="5"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeAddViewModel}}, Path=DeleteIngredientCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Size="Medium" Glyph="{StaticResource IconDelete}" Color="Gray" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <Button BackgroundColor="Accent"
+                                TextColor="White"
+                                Margin="5,5,5,5"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                CornerRadius="20"
+                                HorizontalOptions="Start"
+                                FontFamily="FA-S"
+                                Text="{StaticResource IconAdd}"
+                                Command="{Binding AddIngredientCommand}" />
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+            <StackLayout Margin="10,10,10,10" VerticalOptions="End" IsVisible="{Binding AreIngredientsVisible}">
+                <Grid RowDefinitions="Auto" ColumnDefinitions="*,*">
+                    <Button Grid.Row="0" Grid.Column="0" Text="{x:Static resources:AppResources.Back}" BackgroundColor="White" TextColor="Gray" BorderColor="LightGray" BorderWidth="1" Command="{Binding GoBackToBasicDataCommand}" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="{x:Static resources:AppResources.Next}" BackgroundColor="Accent" TextColor="White" Command="{Binding ProceedWithDirectionsCommand}" />
+                </Grid>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand" IsVisible="{Binding AreDirectionsVisible}">
+                <Label Text="{x:Static resources:AppResources.Directions}" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <ListView ItemsSource="{Binding DirectionAddViewModels}" HasUnevenRows="true" Margin="10,10,10,10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="Auto, *, Auto, Auto, Auto">
+                                    <Frame Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="5" Padding="0" BackgroundColor="Accent">
+                                        <Label Text="{Binding Order}" TextColor="White" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    </Frame>
+                                    <Editor Grid.Column="1" Text="{Binding Description}" AutoSize="TextChanges" />
+                                    <ImageButton Grid.Column="2"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeAddViewModel}}, Path=DecreaseDirectionOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Size="Medium" Glyph="{StaticResource IconUp}" Color="Accent" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="3"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeAddViewModel}}, Path=IncreaseDirectionOrderCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Size="Medium" Glyph="{StaticResource IconDown}" Color="Accent" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                    <ImageButton Grid.Column="4"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipeAddViewModel}}, Path=DeleteDirectionCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FA-S" Size="Medium" Glyph="{StaticResource IconDelete}" Color="Gray" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <Button BackgroundColor="Accent"
+                                TextColor="White"
+                                Margin="5,5,5,5"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                CornerRadius="20"
+                                HorizontalOptions="Start"
+                                FontFamily="FA-S"
+                                Text="{StaticResource IconAdd}"
+                                Command="{Binding AddDirectionCommand}" />
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+            <StackLayout Margin="10,10,10,10" VerticalOptions="End" IsVisible="{Binding AreDirectionsVisible}">
+                <Grid RowDefinitions="Auto" ColumnDefinitions="*,*" VerticalOptions="End">
+                    <Button Grid.Row="0" Grid.Column="0" Text="{x:Static resources:AppResources.Back}" BackgroundColor="White" TextColor="Gray" BorderColor="LightGray" BorderWidth="1" Command="{Binding GoBackToIngredientsCommand}" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="{x:Static resources:AppResources.Save}" BackgroundColor="Accent" TextColor="White" Command="{Binding SaveRecipeCommand}" />
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

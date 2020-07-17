@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RecipeApp.Controls.StepProgressBar">
+    <StackLayout.Resources>
+        <Style x:Key="doneButtonStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="BackgroundColor" Value="Accent" />
+            <Setter Property="BorderColor" Value="Accent" />
+            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="undoneButtonStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="BorderColor" Value="Accent" />
+            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="TextColor" Value="Accent" />
+        </Style>
+        <Style x:Key="transparentBoxViewStyle" TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+        <Style x:Key="doneBoxViewStyle" TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="BackgroundColor" Value="Accent" />
+        </Style>
+        <Style x:Key="undoneBoxViewStyle" TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="BackgroundColor" Value="LightGray" />
+        </Style>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+    </StackLayout.Resources>
+    <StackLayout x:Name="stackLayout" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5" Spacing="0" />
+    <Grid x:Name="grid" HorizontalOptions="FillAndExpand" />
+</StackLayout>

@@ -6,7 +6,7 @@ using Xamarin.Forms;
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class RecipeRowViewModel : BaseModel
+    public class RecipeRowViewModel : BaseViewModel
     {
         public RecipeRowViewModel(Recipe recipe)
         {

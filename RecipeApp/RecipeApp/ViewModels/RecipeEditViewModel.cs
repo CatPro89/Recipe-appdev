@@ -16,12 +16,11 @@ using Xamarin.Forms;
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class RecipeEditViewModel : BaseModel
+    public class RecipeEditViewModel : BaseViewModel
     {
-        public RecipeEditViewModel(IRecipeService recipeService, INavigation navigation, IAlertService alertService, int? recipeId)
+        public RecipeEditViewModel(IRecipeService recipeService, IAlertService alertService, int? recipeId)
         {
             RecipeService = recipeService;
-            Navigation = navigation;
             AlertService = alertService;
             RecipeId = recipeId;
             SelectImageCommand = new Command(async () => await SelectImage());
@@ -106,8 +105,6 @@ namespace RecipeApp.ViewModels
         private ObservableCollection<DirectionEditViewModel> directionEditViewModels;
 
         private IRecipeService RecipeService { get; set; }
-
-        private INavigation Navigation { get; set; }
 
         private IAlertService AlertService { get; set; }
 

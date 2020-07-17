@@ -3,7 +3,6 @@ using RecipeApp.Models;
 using RecipeApp.Resx;
 using RecipeApp.Services;
 using RecipeApp.Views;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -19,12 +18,11 @@ using Xamarin.Forms;
 namespace RecipeApp.ViewModels
 {
     [DebuggerDisplay("{" + nameof(DebuggerDisplay) + "}")]
-    public class RecipeListViewModel : BaseModel
+    public class RecipeListViewModel : BaseViewModel
     {
-        public RecipeListViewModel(IRecipeService recipeService, INavigation navigation, IAlertService alertService)
+        public RecipeListViewModel(IRecipeService recipeService, IAlertService alertService)
         {
             RecipeService = recipeService;
-            Navigation = navigation;
             AlertService = alertService;
             RecipeRowViewModels = new ObservableCollection<RecipeRowViewModel>();
             SearchCommand = new Command(Search);
@@ -92,8 +90,6 @@ namespace RecipeApp.ViewModels
         private ObservableCollection<RecipeRowViewModel> recipeRowViewModels;
 
         private IRecipeService RecipeService { get; set; }
-
-        private INavigation Navigation { get; set; }
 
         private IAlertService AlertService { get; set; }
 
@@ -189,7 +185,7 @@ namespace RecipeApp.ViewModels
 
         private async void AddRecipe()
         {
-            await Navigation.PushModalAsync(new NavigationPage(new RecipeEditPage()));
+            await Navigation.PushModalAsync(new RecipeAddPage());
         }
 
         public ICommand ShowRecipeDetailsCommand { get; private set; }
