@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.30218.91
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Android", "RecipeApp\RecipeApp.Android\RecipeApp.Android.csproj", "{23C96645-2602-44BB-802A-89D8F0AC8FD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp", "RecipeApp\RecipeApp\RecipeApp.csproj", "{B5806674-D35D-4608-87AE-4ED5DB6B9269}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApp", "RecipeApp\RecipeApp\RecipeApp.csproj", "{B5806674-D35D-4608-87AE-4ED5DB6B9269}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F5E9A569-2E24-4079-986F-CB09275ACC99}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
